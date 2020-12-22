@@ -1,0 +1,147 @@
+<style>
+    .place-title {
+        background-color: rgb(255, 255, 255);
+        text-align: center;
+    }
+
+    .place-logo {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 75%;
+        height: auto;
+        align-self: center;
+    }
+
+    .detail {
+        background-color: #eee;
+        color: #444;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        transition: 0.4s;
+    }
+</style>
+
+
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content%}
+<hr>
+<hr>
+<hr>
+<div class="place-title">
+    <h1>Food/Services DB</h1>
+
+    <h2>Esta pagina es para cargar nuevas entradas </h2>
+</div>
+
+<!-- Formulario-->
+<div class="mx-auto" style="width: 600px;">
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+        <input type="submit" name="Submit">
+        
+
+        <!--
+<h1> Este es un formulario HTML </h1>
+
+
+<input type="hidden" id="#" name="#" value="">
+
+<label for="#">Elije una Categoria:</label>
+<input list="#" name="#">
+    <datalist id="#">
+    {% for obj in obj_list %}
+        <option value="{{obj.fs_category}}">
+        
+    {% endfor %}
+    </datalist>
+
+<br>
+<input type="hidden" id="#" name="#" value="1">
+<br>
+<label for="#">Titulo de Producto / Servicio:</label>
+    <input type="text" id="#" name="#">
+<br>
+<label for="#">Descripcion de Producto / Servicio:</label>
+    <textarea name="message" rows="5" cols="30"></textarea>
+<br>
+<label for="myfile">Descripcion de Producto / Servicio:</label>
+    <input type="file" id="myfile" name="myfile">
+    <p><small>La imagen debe ser <mark style="background-color: yellow;">"720px x 405px  y debe estar comprimida</mark></small></p>
+<br>
+<label for="#">Precio de Producto / Servicio:</label>
+    <input type="text" id="#" name="#">
+<br>
+<input type="submit" name="Submit">
+
+    Listado de elementos-->
+
+
+
+    </form>
+</div>
+
+
+<hr>
+<hr>
+
+<div class="mx-auto" style="width: 700px;">
+    <h1>Registros BD {{place}}</h1>
+    <div class="container">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Categoria</th>
+                    <th>Titulo</th>
+                    <th>Descripcion</th>
+                    <th>Imagen</th>
+                    <th>Precio</th>
+                    <th>ID</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            {% for obj in obj_list %}
+            <tbody>
+                <tr>
+                    <td>{{obj.product_category}}</td>
+                    <td>{{obj.product_name}}</td>
+                    <td>{{obj.product_description}}</td>
+                    <td> {% if obj.product_image %}
+                        <img src="{{obj.product_image.url}}"
+                            style="border: 1px solid #ddd; border-radius: 4px; padding: 5px; width: 100px;" />
+                        {% endif %}</td>
+                    <td>${{obj.product_price}}</td>
+                    <td>{{obj.id}}</td>
+<td>
+                    <form method="POST" action="{% url 'delete_product' obj.id %}">
+                        {% csrf_token %}
+                        <button type="submit">Delete</button>
+                        </form></td>
+                    
+                </tr>
+                {% endfor %}
+                
+            </tbody>
+        </table>
+    </div>
+
+    <br>
+    
+
+</div>
+
+
+
+
+
+{% endblock %}
