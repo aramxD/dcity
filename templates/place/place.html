@@ -57,10 +57,10 @@
             {% for c in cupones %}
             <button class="btn btn-primary-outline" type="button" data-toggle="modal"
                 data-target="#cupon_discount{{c.id}}">
-                {% if c.cupon_used %} <a class="list-group-item list-group-item-danger"> {% else %} <a
+                {% if c.used %} <a class="list-group-item list-group-item-danger"> {% else %} <a
                         class="list-group-item list-group-item-info"> {% endif %}
-                        #{{c.number}} - {{c.title}}
-                        <br><small>{{c.description}} </small>
+                        #{{c.cupon.number}} - {{c.cupon.title}}
+                        <br><small>{{c.cupon.description}} </small>
                     </a>
             </button>
             <!-- Modal -->
@@ -71,7 +71,7 @@
                         <div class="modal-header">
                             <h4 class="modal-title">Discounts City</h4>
                         </div>
-                        {% if c.cupon_used %}
+                        {% if c.used %}
                         <div class="modal-body">
 
                             <p>Sorry, you already use this coupon.

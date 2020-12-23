@@ -69,16 +69,16 @@ def place_detail(request, state, slug): #FREE ACCESS
     
     fs_list = queryset.filter(place =lugar)
     fs_category = queryset.filter(place =lugar).values_list('product_category', flat=True).distinct()
-    qs_descuentos = CuponBlock.objects.all()
-    print(CuponBlock__cupon__restaurant)
-    #cupon_descuento = qs_descuentos.filter(cupon.restaurant = lugar)
+    qs_descuentos = CuponBlock.objects.filter(user=request.user)
+    cupon_descuento = qs_descuentos.filter(cupon__restaurant=lugar)
     
 
     context = { 
         'place': place, 
         'food_services': fs_list,
         'cat_menu': fs_category,
-        'cupones': cupon_descuento,}
+        'cupones': cupon_descuento,
+        }
     return render(request, 'place/place.html', context)
 
 
@@ -133,8 +133,8 @@ def delete_product(request,  product_pk):
 def get_discount(request,  cupon_pk):
     cupon_descuento = get_object_or_404(CuponBlock, pk=cupon_pk)
     if request.method == 'POST':
-        if cupon_descuento.cupon.cupon_used == 0:
-            cupon_descuento.cupon.cupon_used = cupon_descuento.cupon.cupon_used + 1
+        if cupon_descuento.used == 0:
+            cupon_descuento.used = cupon_descuento.used + 1
             cupon_descuento.save()
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
         else:

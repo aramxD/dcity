@@ -62,3 +62,5 @@ class CuponBlock(models.Model):
     cupon = models.ForeignKey(Cupon, null=True, on_delete=models.CASCADE)
     used = models.IntegerField(default=0, verbose_name='Usado?')
 
+    def __str__(self):
+        return self.cupon.title
