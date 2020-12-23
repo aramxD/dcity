@@ -14,6 +14,7 @@ def signupuser(request):
         if request.POST['password1'] == request.POST['password2']:
             try:
                 user = User.objects.create_user(request.POST['username'], password=request.POST['password1'])
+                #uso serializer (cliente-servidor)creacion de usuario con cupones existentes
                 user.save()
                 login(request, user)
                 return redirect('homepage')

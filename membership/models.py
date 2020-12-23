@@ -36,6 +36,7 @@ class UserMembership(models.Model):
         return self.user.username
 
 def post_save_usermembership_create(sender, instance, created, *args, **kwargs):
+    
     if created:
         UserMembership.objects.get_or_create(user=instance)
 
@@ -62,5 +63,18 @@ class CuponBlock(models.Model):
     cupon = models.ForeignKey(Cupon, null=True, on_delete=models.CASCADE)
     used = models.IntegerField(default=0, verbose_name='Usado?')
 
-    def __str__(self):
-        return self.cupon.title
+
+
+
+def cuponblock_create(sender, instance, created, *args, **kwargs):
+    print("cD")
+    if created:
+        CuponBlock.objects.get_or_create(user=instance)
+#
+#    user_cuponblock, created = CuponBlock.objects.get_or_create(user=instance)
+#
+#    if user_membership.cupon is None or user_membership.cupon == '':
+#        new_cupon_id = stripe.Customer.create(email=instance.email)
+#        user_membership.stripe_customer_id = new_customer_id['id']
+#        user_membership.save()
+post_save.connect(cuponblock_create, sender=settings.AUTH_USER_MODEL)
