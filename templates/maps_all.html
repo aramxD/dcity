@@ -19,7 +19,7 @@
         //call marker function
         {% for place in maps_qs %}
         var pname = '{{place.place.title}}';
-        var plink = 'http://127.0.0.1:8000/{{place.place.state}}/{{place.place.slug}}'
+        var plink = 'https://discountscitydemo.herokuapp.com/{{place.place.state}}/{{place.place.slug}}'
         addMarker({ lat: {{ place.latitud }}, lng: {{ place.longitud }} });
         {% endfor %}
         function addMarker(location) {
