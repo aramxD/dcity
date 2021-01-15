@@ -3,6 +3,7 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
+from membership.models import *
 
 
 
@@ -28,7 +29,6 @@ class PlaceType(models.Model):
         return self.title
 
 
-
 class Place(models.Model):
     slug = models.CharField(max_length=30, verbose_name="url del sitio")
     title = models.CharField(max_length=100, verbose_name="Nombre")
@@ -51,6 +51,24 @@ class Place(models.Model):
         'slug':self.slug
         } ) 
 
+
+class PlaceMap(models.Model):
+    place = models.ForeignKey(Place,  on_delete=models.CASCADE, verbose_name="Lugar")
+    latitud = models.DecimalField(max_digits=15, decimal_places=9, verbose_name="Latitud" , blank=True)
+    longitud = models.DecimalField(max_digits=15, decimal_places=9, verbose_name="Longitud" , blank=True)
+
+    def __str__(self):
+        return self.place.title
+
+class Owner(models.Model):
+    name_owner = models.CharField(max_length=30, verbose_name="nombre del responsable")
+    phone_owner = models.IntegerField(verbose_name="telefono del responsable")
+    email_owner = models.EmailField(max_length=30, verbose_name="email del responsable")
+    place_owner = models.ForeignKey(Place, on_delete=models.CASCADE, verbose_name="Nombre del negocio")
+    terms = models.BooleanField(default=False, verbose_name="Acepto terminos y condiciones")
+
+    def __str__(self):
+        return self.name_owner
 
 
 #fs --> food / service

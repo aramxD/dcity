@@ -7,12 +7,11 @@ class MembershipAdmin(admin.ModelAdmin):
 
 
 class UserMembershipAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('id', 'user', 'membership',   ) #visualizar columnas
 
 
 class SubscriptionAdmin(admin.ModelAdmin):
     pass
-
 
 class CuponBlockAdmin(admin.ModelAdmin):
     list_display = ('id', 'user', 'cupon', 'used',  ) #visualizar columnas

@@ -1,0 +1,119 @@
+{% if place %}
+<footer class="bg-secondary text-center text-lg-start">
+    <div style="max-width: 60rem; margin:auto;" class="container-fluid">
+        <div class="row">
+            <!--Grid column-->
+            <div class="col-lg-1 col-md-1 mb-1 mb-md-1"> </div>
+            <div class="col-lg-5 col-md-5 mb-4 mb-md-0">
+                
+                <h5 class="display-5 text-uppercase">give us your feedback?</h5>
+
+                <p>
+                    Help us improve our service, what do you think of our service?
+                </p>
+                
+
+                <form class="form-inline" action="/action_page.php">
+                    <div class="form-group">
+                        <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Enter Full Name" id="fullnamecostumer">
+                        <input type="email" class="form-control mb-2 mr-sm-2" placeholder="Enter email" id="emailcostumer">
+                        <textarea rows="3" cols="50" name="comment" form="usrform" class="form-control mb-2 mr-sm-2"> </textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+
+            
+
+        </div>
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(27, 24, 24, 0.089)">
+            © 2020 Copyright:
+            <a class="text-dark" href="#">Julio Santacruz</a>
+        </div>
+        <!-- Copyright -->
+    </div>
+
+
+
+
+
+
+</footer>
+
+{% else %}
+<footer class="bg-secondary text-center text-lg-start">
+    <div class="container-fluid">
+        <div class="row">
+            <!--Grid column-->
+            <div class="col-lg-1 col-md-1 mb-1 mb-md-1"> </div>
+            <div class="col-lg-5 col-md-5 mb-4 mb-md-0">
+                <br>
+                <h5 class="display-5 text-uppercase">You want to be part of Discounts City</h5>
+
+                <p>
+                    If you have a store, restaurant or offer a product or service you can be part of Discounts city ...
+                    Our mission is to know and facilitate consumption in local businesses and you can be part of it ...
+                    Registering is simple and free, send us your email and phone number and one of our operators will
+                    contact you
+                </p>
+                <br>
+
+                <form class="form-inline" action="/action_page.php">
+                    <div class="form-group">
+                        <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Enter Full Name" id="fullnamecontact">
+                        <input type="email" class="form-control mb-2 mr-sm-2" placeholder="Enter email" id="emailcontact">
+                        <input type="email" class="form-control mb-2 mr-sm-2" placeholder="Enter Phone Number"
+                            id="email">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <div class="col-lg-1 col-md-1 mb-1 mb-md-1"> </div>
+
+            <div class="col-lg-5 col-md-3 mb-2 mb-md-0 text-center">
+                <br>
+                <h5 class="display-6 text-uppercase ">social networks</h5>
+                <ul class="list-inline list-unstyled ">
+                    <li><a style="text-decoration:none; color:black"
+                            href="https://github.com/twbs/bootstrap">Facebook</a></li>
+                    <li><a style="text-decoration:none; color:black"
+                            href="https://twitter.com/getbootstrap">Instagram</a></li>
+                    <li><a style="text-decoration:none; color:black" href="/docs/4.1/examples/">Youtube</a></li>
+                    <li><a style="text-decoration:none; color:black" href="/docs/4.1/about/overview/">About</a></li>
+                </ul>
+                <br>
+                <h5 class="display-6 text-uppercase ">Others</h5>
+                <ul class="list-inline list-unstyled ">
+                    <li><a style="text-decoration:none; color:black"
+                            href="https://github.com/twbs/bootstrap">Join Us</a></li>
+                    <li><a style="text-decoration:none; color:black"
+                            href="https://twitter.com/getbootstrap">About</a></li>
+                    <li><a style="text-decoration:none; color:black" href="/docs/4.1/examples/">Aviso Legal</a></li>
+                    <li><a style="text-decoration:none; color:black" href="/docs/4.1/about/overview/">Privacidad</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-1 col-md-1 mb-1 mb-md-1"> </div>
+            
+
+        </div>
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(27, 24, 24, 0.089)">
+            © 2020 Copyright:
+            <a class="text-dark" href="#">Julio Santacruz</a>
+        </div>
+        <!-- Copyright -->
+    </div>
+
+
+
+
+
+
+</footer>
+<!-- Footer -->
+{% endif %}

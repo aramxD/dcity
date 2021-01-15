@@ -17,6 +17,13 @@ class PlaceAdmin(admin.ModelAdmin):
     ordering = ('-timestamp', ) #ordenar listas
     search_fields = ('title',)  #buscador
 
+class PlaceMapAdmin(admin.ModelAdmin):
+    pass
+
+class OwnerAdmin(admin.ModelAdmin):
+    pass
+
+
 class ServiceMenuAdmin(admin.ModelAdmin):
     list_display = ('place', 'product_category', 'product_name') #visualizar columnas
     ordering = ('place', ) #ordenar listas
@@ -32,5 +39,7 @@ class CuponAdmin(admin.ModelAdmin):
 
 admin.site.register(PlaceType, PlaceTypeAdmin)
 admin.site.register(Place, PlaceAdmin)
+admin.site.register(PlaceMap, PlaceMapAdmin)
+admin.site.register(Owner, OwnerAdmin)
 admin.site.register(ServiceMenu, ServiceMenuAdmin)
 admin.site.register(Cupon, CuponAdmin)

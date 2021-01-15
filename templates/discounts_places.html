@@ -1,0 +1,58 @@
+<style>
+
+</style>
+
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="container">
+<h1>Find a new place today</h1>
+<div id="map" style=" height: 300px; width: 100%; margin: auto;"></div>
+
+<hr>
+
+    <h1 class="display-3 font-weight-bold"> Discounts Places </h1>
+    <hr>
+    <h3 class="display-4 font-weight-bold"> Try a new place Today..!! </h3>
+    {% for place in places %}
+    {% if forloop.first %}<div class="row">{% endif %}
+        <div class="col-4" style="padding-right: 5px; padding-left: 8px; ">
+            <div class="card-deck">
+                <div class="card rounded-4 " style="border-radius: 25px">
+                    <a style="text-decoration:none" href="{% url 'place_detail' place.state place.slug %}">
+                        {% if place.logo %} <img class="img-fluid" src="{{ place.logo.url }}" alt="..."> {% endif %}
+                        <div class="">
+                            <h3 class="card-title  text-center " style="font-size:1.2em;">
+                                {{place.title|truncatechars:16}}</h3>
+                        </div>
+                    </a>
+                    <div class="card-footer" style="border-bottom-left-radius: 25px; border-bottom-right-radius: 25px;">
+                        <small class="text-muted">{{place.city|truncatechars:10}}</small>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        {% if forloop.counter|divisibleby:3 %}
+    </div><br>
+    <div class="row">{% endif %}
+        {% if forloop.last %}</div>{% endif %}
+    {% endfor %}
+
+
+    <hr>
+    
+
+    <hr>
+    <h1> hasta que todo bien</h1>
+    <hr>
+</div>
+
+
+
+
+{% include 'maps_all.html' %}
+{% endblock content%}

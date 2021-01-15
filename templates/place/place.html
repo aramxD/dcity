@@ -1,7 +1,7 @@
 <style>
     details {
         background-color: rgba(150, 150, 150, 0.1);
-        margin: 10px auto;
+        margin: 5px auto;
         padding: 5px;
         position: relative;
         border: 1px solid rgba(0, 0, 0, .1);
@@ -33,7 +33,7 @@
 
 
 <!-- Informacion de Sitio -->
-<div class="jumbotron text-center" style="background-color: rgba(255, 255, 255, .2); max-width: 30rem; margin:auto; ">
+<div class="jumbotron text-center" style="background-color: rgba(255, 255, 255, .2); max-width: 50rem; margin:auto; ">
 
     <h1 class="place-title"> {{place.title}} </h1><br />
     <div class="place-logo">
@@ -43,7 +43,26 @@
             {% endif %}
         </a>
     </div>
-    <br />
+
+    <!-- Letrero para inscribirse--> 
+    {% if user.is_authenticated %}
+    {% else %}
+    <div
+        style="background-color: rgba(64, 85, 178, 0.774); width: 300px; height: 350px; border-radius: 25px; margin: auto; border: 2px solid rgba(44, 68, 175, 0.932); color: #ffffff;">
+        <div style="font-size: 18px; font-family: sans-serif; color: #ffffff;">
+            <h3 style="text-align: center; color: #ffffff;">Welcome to Discounts City</h3>
+            <div style="font-size: 30px; font-family: 'Lucida Sans', sans-serif; text-align: center;">Only $1.99 per Month</div>
+            <ul style="list-style-type: none;">
+                <li>Discounts city <strong>membership</strong></li>
+                <li>Restaurant's <strong>discounts</strong></li>
+                <li>Service's <strong>discounts</strong></li>
+                <li>Special <strong>offers</strong></li>
+            </ul>
+            <h3 style="color: #ffffff; text-align: center;"><em><strong><a style="color: #ffffff;" href="{% url 'signupuser'%}">Register now</a></strong></em></h3>
+
+        </div>
+    </div>
+    {% endif %}
 
 
 
@@ -52,6 +71,7 @@
 
     <!-- Botones descuentos -->
     <div class="container">
+        {% if user.is_authenticated %}
         <h2>Descuendos de {{place.title}}</h2>
         <div class="list-group">
             {% for c in cupones %}
@@ -82,120 +102,121 @@
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         </div>
                         {% else %}
-                            <div class="modal-body">
-                                <h4>Enjoy the discount #{{c.cupon.number}} </h4><br> {{c.cupon.title}}
-                                <br><small>{{c.cupon.description}} </small>
-                                </a>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <form method="POST" action="{% url 'get_discount' c.id %}">
-                                    {% csrf_token %}
-                                    <button class="btn btn-primary" type="submit">
-                                        Confirm
-                                    </button>
-                                </form>
-                            </div>
-                        {% endif %}
+                        <div class="modal-body">
+                            <h4>Enjoy the discount #{{c.cupon.number}} </h4><br> {{c.cupon.title}}
+                            <br><small>{{c.cupon.description}} </small>
+                            </a>
                         </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <form method="POST" action="{% url 'get_discount' c.id %}">
+                                {% csrf_token %}
+                                <button class="btn btn-primary" type="submit">
+                                    Confirm
+                                </button>
+                            </form>
+                        </div>
+                        {% endif %}
                     </div>
                 </div>
-                {% endfor %}
             </div>
-
-
-        </div>
-        <br /><br /><br /><br />
-
-
-
-
-        <!-- Datos del restaurante -->
-        <div class="container" style="max-width: 800px; margin:auto;">
-            <div class="list-group">
-                <div type="" class="list-group-item" data-toggle="collapse" data-target="#servicehours">{{place.title}}
-                    Service Hours</div>
-                <div id="servicehours" class="collapse text-center" style="width: auto; margin:auto; ">
-                    {{place.horario | safe |center:"15"}}
-                </div>
-
-
-                <div type="" class="list-group-item" data-toggle="collapse" data-target="#location">{{place.title}}
-                    Location</div>
-                <div id="location" class="collapse text-center" style="width: auto; margin:auto; ">
-                    {{place.location | safe}}
-                </div>
-
-                <a href="tel:+{{place.phone_number}}" style="color: rgb(255, 255, 255);">
-                    <div type="" class="list-group-item">
-                        <a href="tel:+{{place.phone_number}}" style="color: rgb(0, 0, 0);">
-                            Call {{place.title}} on {{place.city}}
-
-                    </div>
-                </a>
-
-            </div>
+            {% endfor %}
         </div>
 
-        <br />
 
     </div>
-
-
-    <!-- Informacion de MENU -->
-    <div class="container" style="max-width: 30rem; margin:auto;">
-        <h1>{{place.title}} Menu </h1>
+    {% endif %}
+    <br /><br /><br /><br />
 
 
 
-        {% for i in cat_menu %}
-        {{i.product_category}}
 
-        <details>
-            <summary>
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <h3> {{i}} </h3>
-                    </div>
+    <!-- Datos del restaurante -->
+    <div class="container" style="max-width: 50rem; margin:auto;">
+        <div class="list-group">
+            <div type="" class="list-group-item" data-toggle="collapse" data-target="#servicehours">{{place.title}}
+                Service Hours</div>
+            <div id="servicehours" class="collapse text-center" style="width: auto; margin:auto; ">
+                {{place.horario | safe |center:"15"}}
+            </div>
+
+
+            <div type="" class="list-group-item" data-toggle="collapse" data-target="#location">{{place.title}}
+                Location</div>
+            <div id="location" class="collapse text-center" style="width: auto; margin:auto; ">
+                {{place.location | safe}}
+            </div>
+
+            <a href="tel:+{{place.phone_number}}" style="color: rgb(255, 255, 255);">
+                <div type="" class="list-group-item">
+                    <a href="tel:+{{place.phone_number}}" style="color: rgb(0, 0, 0);">
+                        Call {{place.title}} on {{place.city}}
+
                 </div>
-            </summary>
+            </a>
+
+        </div>
+    </div>
+
+    <br />
+
+</div>
 
 
-            {% for fs in food_services %}
+<!-- Informacion de MENU -->
+<div class="container" style="max-width: 50rem; margin:auto;">
+    <h1>{{place.title}} Menu </h1>
 
 
-            {% if fs.product_category == i%}
-            <div class="card bg-light text-dark" style="max-width: 25rem; margin:auto;">
-                <div class="card-body" style="margin:auto;">
-                    <!--  Elemento de Menu 1-->
-                    <div class="card-title text-center">
-                        <h4>{{fs.product_name}} </h4>
-                    </div>
-                    <!--<div class="foodcontenido">-->
-                    <div class="card-text">
-                        <em>{{fs.product_description}}</em>
-                    </div>
 
-                    {% if fs.product_image %}
+    {% for i in cat_menu %}
+    {{i.product_category}}
 
-                    <div> <img src="{{fs.product_image.url}}" class="img-fluid" alt="THE BEST FOOD" /> </div>
+    <details>
+        <summary>
+            <div class="panel panel-default">
 
-                    {% endif %}
+                <h3 class="font-weight-bold"> {{i}} </h3>
 
-                    <div class="text-right">
-                        <strong>${{fs.product_price}}</strong>
-                    </div>
+            </div>
+        </summary>
+
+
+        {% for fs in food_services %}
+
+
+        {% if fs.product_category == i%}
+        <div class="card bg-light text-dark" style="max-width: 50rem; margin:auto;">
+            <div class="card-body" style="margin:auto;">
+                <!--  Elemento de Menu 1-->
+                <div class="card-title text-center">
+                    <h4>{{fs.product_name}} </h4>
+                </div>
+                <!--<div class="foodcontenido">-->
+                <div class="card-text">
+                    <em>{{fs.product_description}}</em>
+                </div>
+
+                {% if fs.product_image %}
+
+                <div> <img src="{{fs.product_image.url}}" class="img-fluid" alt="THE BEST FOOD" /> </div>
+
+                {% endif %}
+
+                <div class="text-right">
+                    <strong>${{fs.product_price}}</strong>
                 </div>
             </div>
-            <br>
-            {% endif %}
-            {% endfor %}
-
-        </details>
+        </div>
+        <br>
+        {% endif %}
         {% endfor %}
 
-        <br />
-    </div> <br />
+    </details>
+    {% endfor %}
+
+    <br />
+</div> <br />
 </div> <br />
 </div>
 

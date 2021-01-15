@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+</style>
+
+<h1>Mapa chingon</h1>
+<div id="map" style=" height: 300px; width: 100%; margin: auto;"></div>
+
+<script>
+    function initMap() {
+        var location = { lat: 37.090240, lng: -95.712891 };
+        var map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 4,
+            center: location,
+            disableDefaultUI: true,
+            styles: [{
+                "featureType": "all",
+                "elementType": "labels.text",
+                "stylers": [{ "visibility": "off" }]
+            },
+            {
+                "featureType": "all",
+                "elementType": "labels.icon",
+                "stylers": [{ "visibility": "off" }]
+            }]
+        });
+        //call marker function
+        {% for place in maps_qs %}
+        var pname = '{{place.place.title}}';
+        var plink = 'http://127.0.0.1:8000/{{place.place.state}}/{{place.place.slug}}'
+        addMarker({ lat: {{ place.latitud }}, lng: {{ place.longitud }} });
+        {% endfor %}
+        function addMarker(location) {
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map,
+                label: "R",
+            });
+            const contentString =
+                '<div id="content"> <div id="siteNotice"> </div>' + 
+                '<h5 id="firstHeading" class="firstHeading"> <a href="'+plink+'">' +
+                pname + '</a></h5></div>';
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString,
+            });
+            google.maps.event.addListener(marker, 'click', function () {
+                infowindow.open(map, marker);
+            });
+        }
+    }
+
+
+</script>
+<script async defer
+    src=  "https://maps.googleapis.com/maps/api/js?key=AIzaSyDqtFbeadfHG4D1VN7ByGmexwMfjPJZ_ME&callback=initMap"
+    type="text/javascript"></script>
+
+{% endblock %}

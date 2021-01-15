@@ -18,7 +18,7 @@ class Membership(models.Model):
     slug = models.SlugField()
     membership_type = models.CharField(
         choices=MEMBERSHIP_CHOICES, 
-        default='Free', 
+        default='Member', 
         max_length=30)
     price = models.DecimalField(max_digits=3, decimal_places=2, default=1.99)
     stripe_plan_id = models.CharField(max_length=40)
@@ -36,7 +36,8 @@ class UserMembership(models.Model):
         return self.user.username
 
 def post_save_usermembership_create(sender, instance, created, *args, **kwargs):
-    
+    c = Membership.objects.filter( membership_type='Member')
+    select_membership = c.first()
     if created:
         UserMembership.objects.get_or_create(user=instance)
 
@@ -45,6 +46,7 @@ def post_save_usermembership_create(sender, instance, created, *args, **kwargs):
     if user_membership.stripe_customer_id is None or user_membership.stripe_customer_id == '':
         new_customer_id = stripe.Customer.create(email=instance.email)
         user_membership.stripe_customer_id = new_customer_id['id']
+        user_membership.membership = select_membership
         user_membership.save()
 post_save.connect(post_save_usermembership_create, sender=settings.AUTH_USER_MODEL)
 
@@ -66,15 +68,27 @@ class CuponBlock(models.Model):
 
 
 
-def cuponblock_create(sender, instance, created, *args, **kwargs):
-    print("cD")
+def cuponblock_create_user(sender, instance, created, *args, **kwargs):
+    
+    c = Cupon.objects.all()
+    #print(c)
+    
     if created:
-        CuponBlock.objects.get_or_create(user=instance)
-#
-#    user_cuponblock, created = CuponBlock.objects.get_or_create(user=instance)
-#
-#    if user_membership.cupon is None or user_membership.cupon == '':
-#        new_cupon_id = stripe.Customer.create(email=instance.email)
-#        user_membership.stripe_customer_id = new_customer_id['id']
-#        user_membership.save()
-post_save.connect(cuponblock_create, sender=settings.AUTH_USER_MODEL)
+        for i in c:    
+            print(i)
+            new, created = CuponBlock.objects.get_or_create(user=instance, cupon=i)
+post_save.connect(cuponblock_create_user, sender=settings.AUTH_USER_MODEL)
+
+def cuponblock_create_cupon(sender, instance, created, *args, **kwargs):
+    
+    c = Cupon.objects.all()
+    new = CuponBlock.objects.all()
+    u = User.objects.all()
+    if created:
+        for i in u:    
+            
+            new, created = CuponBlock.objects.get_or_create(user=i, cupon=instance)
+
+post_save.connect(cuponblock_create_cupon, sender=Cupon)
+
+

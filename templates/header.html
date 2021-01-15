@@ -1,41 +1,61 @@
-
 <!-- Menu Navbar-->
-<nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+<nav style="margin:0; " class="navbar navbar-inverse navbar-expand-md navbar-light bg-secondary text-black">
     <div class="container-fluid">
         <!-- Menu Logo-->
-        <div class="navbar-header">
-            <a class="navbar-brand" href="{% url 'homepage' %}">Discounts City</a>
+        <div class="navbar-header ">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="display-5 navbar-brand" href="{% url 'homepage' %}">Discounts City</a>
         </div>
-        <!-- Menu Paginas-->
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item active"><a class="nav-link" href="{% url 'add_place' %}">Add Place</a></li>
-            <li class="nav-item active"><a class="nav-link" href="{% url 'list_place' %}">List Places</a></li>
-            {% if place %}
-            <li class="nav-item active"><a class="nav-link" href="{% url 'view_place' place.id %}">Edit Place</a></li>
-            <li class="nav-item active"><a class="nav-link" href="{% url 'add_product' place.state place.slug %}">add Product</a></li>
-            <li class="nav-item active"><a class="nav-link" href="{% url 'add_cupon' place.state place.slug %}">add Cupon</a></li>
-            <li class="nav-item active"><a class="nav-link" href="{% url 'add_discount' place.state place.slug %}">add Discount</a></li>
-            {% endif %}
-        </ul>
-        <!-- Menu User-->
-        <ul class="nav navbar-nav navbar-right">
-            {% if user.is_authenticated %}
-            <!-- Navbar text-->
-            <li><span class="navbar-text"></li>
-                Welcome {{user.username}}
-            <!-- LogOut-->
-            <li><span class="glyphicon glyphicon-user"></span> 
-            <form action="{% url 'logoutuser' %}" method="POST">
-                {% csrf_token %} 
-                <button type="submit"> Logout </button>
-            </form></li>
-            </span>
-            {% else %}
-            <li><a href="{% url 'signupuser' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="{% url 'loginuser' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-            {% endif %}
-        </ul>
+        <!-- Menu Admin-->
+        
+        <div class="collapse navbar-collapse " id="myNavbar">
+        {% if user.is_superuser %}
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                <li class="nav-item active"><a class="nav-link bg-secondary text-black" href="{% url 'add_place' %}">Add
+                        Place</a></li>
+                <li class="nav-item active"><a class="nav-link bg-secondary text-black"
+                        href="{% url 'list_place' %}">List Places</a></li>
+                {% if place %}
+                <li class="nav-item active"><a class="nav-link bg-secondary text-black"
+                        href="{% url 'view_place' place.id %}">Edit Place</a>
+                </li>
+                <li class="nav-item active"><a class="nav-link bg-secondary text-black"
+                        href="{% url 'add_product' place.state place.slug %}">
+                        Add Product</a></li>
+                <li class="nav-item active"><a class="nav-link bg-secondary text-black"
+                        href="{% url 'add_cupon' place.state place.slug %}">
+                        Add Cupon</a></li>
+                {% endif %}
+            </ul>
+        {% endif %}
+
+            <!-- Menu User-->
+            <ul class="nav navbar-nav navbar-right ">
+                {% if user.is_authenticated %}
+                <!-- Navbar text-->
+                <li>
+                    <span class="navbar-text">
+                Welcome {{user.username}} </span> 
+                </li> 
+                <!-- LogOut-->
+                    <li>
+                        <form action="{% url 'logoutuser' %}" method="POST">
+                            {% csrf_token %}
+                            <button class="btn btn-outline-success bg-light" type="submit"> 
+                                <span class="glyphicon glyphicon-user"></span>
+                                Logout </button>
+                        </form>
+                    </li>
+                
+                {% else %}
+                <li><a href="{% url 'signupuser' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="{% url 'loginuser' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                {% endif %}
+            </ul>
+        </div>
     </div>
 </nav>
-
-
