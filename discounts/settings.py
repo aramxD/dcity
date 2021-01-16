@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '6(w)hd#d9q%i_j*bn!!o2my$_rww)23tq&wo4kb^mn&e4exg7a'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'membership',
     'place',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -73,7 +74,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'discounts.wsgi.application'
 
 
-# Database
+# Database DEFAULT
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 #DATABASES = {
@@ -83,13 +84,42 @@ WSGI_APPLICATION = 'discounts.wsgi.application'
 #    }
 #}
 
-import dj_database_url
-from decouple import config
+#DATABASE POSTGRESQL AWS
 DATABASES = {
-    'default': dj_database_url.config(
-        default=config('DATABASE_URL')
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'demo_DC',
+        'USER': 'aramxD',
+        'PASSWORD': 'LavioletaxD99',
+        'HOST': 'database-2.cd10lnnyhtsu.us-east-2.rds.amazonaws.com',
+        'PORT': '5432',
+    }
 }
+
+#DATABASE POSTGRESQL LOCAL
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql',
+#        'NAME': 'DEMO_TEST',
+#        'USER': 'postgres',
+#        'PASSWORD': 'LavioletaxD99',
+#        'HOST': 'localhost',
+#        'PORT': '5432',
+#    }
+#}
+
+
+
+
+
+#DATABASE HEROKU
+#import dj_database_url
+#from decouple import config
+#DATABASES = {
+#    'default': dj_database_url.config(
+#        default=config('DATABASE_URL')
+#    )
+#}
 
 
 # Password validation
@@ -150,3 +180,30 @@ if DEBUG:
 else:
     STRIPE_PUBLISHABLE_KEY = 'pk_test_aCKLgcF6pfucFjIKXZcnGgI900MSTmB0Zn'
     STRIPE_SECRET_KEY = 'sk_test_51GZpiRKozHJOGShQUD1tr0RH8Y0rHXswlkf13M8Qy8xgDSyfcT8Vah3CAv5rc37U1HUL0vFtNBl6y8HhJ55eE5cS00raRVGBwo'
+
+
+#S3 BUCKETS CONFIG
+
+AWS_ACCESS_KEY_ID = 'AKIA5TS3ALKVIT7HSS5Q'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'discounts-city-bucket-1'
+
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+
+
+'''
+<?xml version="1.0" encoding="UTF-8"?>
+<CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+<CORSRule>
+    <AllowedOrigin>*</AllowedOrigin>
+    <AllowedMethod>GET</AllowedMethod>
+    <AllowedMethod>POST</AllowedMethod>
+    <AllowedMethod>PUT</AllowedMethod>
+    <AllowedHeader>*</AllowedHeader>
+</CORSRule>
+</CORSConfiguration>
+'''
