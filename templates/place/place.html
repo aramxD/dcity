@@ -35,11 +35,13 @@
 <!-- Informacion de Sitio -->
 <div class="jumbotron text-center" style="background-color: rgba(255, 255, 255, .2); max-width: 50rem; margin:auto; ">
 
-    <h1 class="place-title"> {{place.title}} </h1><br />
+    
     <div class="place-logo">
         <a href="#">
             {% if place.logo %}
             <img src="{{ place.logo.url }}" alt="..." class="img-fluid ">
+            {% else %}
+            <h1 class="place-title"> {{place.title}} </h1>
             {% endif %}
         </a>
     </div>
@@ -72,7 +74,7 @@
     <!-- Botones descuentos -->
     <div class="container">
         {% if user.is_authenticated %}
-        <h2>Descuendos de {{place.title}}</h2>
+        <h2>Descuentos de {{place.title}}</h2>
         <div class="list-group">
             {% for c in cupones %}
             <button class="btn btn-primary-outline" type="button" data-toggle="modal"
@@ -126,7 +128,7 @@
 
     </div>
     {% endif %}
-    <br /><br /><br /><br />
+    <br /><br />
 
 
 

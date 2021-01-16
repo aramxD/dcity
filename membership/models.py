@@ -75,7 +75,7 @@ def cuponblock_create_user(sender, instance, created, *args, **kwargs):
     
     if created:
         for i in c:    
-            print(i)
+            
             new, created = CuponBlock.objects.get_or_create(user=instance, cupon=i)
 post_save.connect(cuponblock_create_user, sender=settings.AUTH_USER_MODEL)
 

@@ -25,7 +25,7 @@ class OwnerAdmin(admin.ModelAdmin):
 
 
 class ServiceMenuAdmin(admin.ModelAdmin):
-    list_display = ('place', 'product_category', 'product_name') #visualizar columnas
+    list_display = ('place', 'product_category', 'product_name', 'product_price') #visualizar columnas
     ordering = ('place', ) #ordenar listas
     search_fields = ('place', 'product_category', 'product_name',)  #buscador
 
