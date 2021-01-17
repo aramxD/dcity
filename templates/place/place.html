@@ -2,7 +2,7 @@
     details {
         background-color: rgba(150, 150, 150, 0.1);
         margin: 5px auto;
-        padding: 5px;
+        padding: 0px;
         position: relative;
         border: 1px solid rgba(0, 0, 0, .1);
         border-radius: 15px;
@@ -74,7 +74,7 @@
     <!-- Botones descuentos -->
     <div class="container">
         {% if user.is_authenticated %}
-        <h2>Descuentos de {{place.title}}</h2>
+        <h2 style="font-size:8vw;" >Descuentos de {{place.title}}</h2>
         <div class="list-group">
             {% for c in cupones %}
             <button class="btn btn-primary-outline" type="button" data-toggle="modal"
@@ -167,36 +167,46 @@
 
 <!-- Informacion de MENU -->
 <div class="container" style="max-width: 50rem; margin:auto;">
-    <h1>{{place.title}} Menu </h1>
+    <h1 style="font-size:8vw;">{{place.title}} Menu </h1>
 
 
 
     {% for i in cat_menu %}
-    {{i.product_category}}
+    
 
     <details>
         <summary>
-            <div class="panel panel-default">
+            <div class="card-title">
 
-                <h3 class="font-weight-bold"> {{i}} </h3>
+                <h2 style=" margin: 7px;" class="font-weight-bold" style="letter-spacing: 2px;"> {{i}} </h2>
 
             </div>
         </summary>
 
 
+        {% for fs in cat_menu_detail %}
+        {% if fs.product_category == i%}
+        <div class="text-center">
+        <h4><em>{{fs.product_category_detail}}</em> </h4>
+        </div>
+        {% endif %}
+        {% endfor %}
+
+
+
         {% for fs in food_services %}
 
-
         {% if fs.product_category == i%}
-        <div class="card bg-light text-dark" style="max-width: 50rem; margin:auto;">
-            <div class="card-body" style="margin:auto;">
+
+        <div class="card bg-light text-dark" style="max-width: 50rem; margin:auto; border-radius: 10px;">
+            <div class="card-body" style="">
                 <!--  Elemento de Menu 1-->
                 <div class="card-title text-center">
-                    <h4>{{fs.product_name}} </h4>
+                    <h3 style=" margin: 0px;" >{{fs.product_name}} </h3>
                 </div>
                 <!--<div class="foodcontenido">-->
                 <div class="card-text">
-                    <em>{{fs.product_description}}</em>
+                    <p><em>{{fs.product_description}}</em></p>
                 </div>
 
                 {% if fs.product_image %}
@@ -206,7 +216,7 @@
                 {% endif %}
 
                 <div class="text-right">
-                    <strong>${{fs.product_price}}</strong>
+                    <p style=" margin: 0px;"><strong>${{fs.product_price}}</strong></p>
                 </div>
             </div>
         </div>

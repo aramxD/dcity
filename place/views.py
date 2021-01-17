@@ -112,7 +112,8 @@ def place_detail(request, state, slug): #FREE ACCESS
     
     fs_list = queryset.filter(place =lugar)
     fs_category = queryset.filter(place =lugar).values_list('product_category', flat=True).distinct()
-
+    fs_category_detail = queryset.filter(place =lugar).distinct('product_category_detail')
+    print(fs_category_detail)
     
     if request.user.is_authenticated:
         qs_descuentos = CuponBlock.objects.filter(user=request.user)
@@ -121,6 +122,7 @@ def place_detail(request, state, slug): #FREE ACCESS
         'place': place, 
         'food_services': fs_list,
         'cat_menu': fs_category,
+        'cat_menu_detail': fs_category_detail,
         'cupones': cupon_descuento,
         }
         return render(request, 'place/place.html', context)

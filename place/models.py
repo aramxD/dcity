@@ -75,6 +75,7 @@ class Owner(models.Model):
 class ServiceMenu(models.Model):
     place = models.ForeignKey(Place, on_delete=models.CASCADE, verbose_name="restaurante")
     product_category = models.CharField(max_length=30, verbose_name="Categoria food / service")
+    product_category_detail = models.TextField(verbose_name="Detalles de categoria", null=True , blank=True)
     product_orden = models.IntegerField(default=1, verbose_name="Orden food / service")
     product_name = models.CharField(max_length=30, verbose_name="Nombre food / service")
     product_description = models.TextField(verbose_name="Descripcion food / service" , blank=True)
@@ -91,8 +92,6 @@ class Cupon(models.Model):
     title = models.CharField(max_length=30, verbose_name="titulo cupon")
     description = models.CharField(max_length=80, verbose_name="descripcion cupon", blank=True)
     restaurant = models.ForeignKey(Place, on_delete=models.CASCADE, verbose_name="restaurante")
-    cupon_used = models.IntegerField(default=0, verbose_name="se uso?")
-    
 
     def __str__(self):
         return self.title

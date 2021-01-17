@@ -69,10 +69,7 @@ class CuponBlock(models.Model):
 
 
 def cuponblock_create_user(sender, instance, created, *args, **kwargs):
-    
     c = Cupon.objects.all()
-    #print(c)
-    
     if created:
         for i in c:    
             
