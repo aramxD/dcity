@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'discounts.wsgi.application'
 ####DATABASE POSTGRESQL AWS
 DATABASES = {
     'default': {
-        'ENGINE': config('DB_AWS_ENGINE'),
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': config('DB_AWS_NAME'),
         'USER': config('DB_AWS_USER'),
         'PASSWORD': config('DB_AWS_PASSWORD'),
