@@ -8,15 +8,16 @@
 
 {% block content %}
 <div class="container">
-<!--El mapa  ver maps_all-->
-<h1>Find a new place today</h1>
-<div id="map" style=" height: 300px; width: 100%; margin: auto;"></div>
 
-<hr>
-
-    <h1 class="display-3 font-weight-bold"> Discounts Places </h1>
+    <h1 class="display-1 font-weight-bold text-center"> Discounts Places </h1>
     <hr>
-    <h3 class="display-4 font-weight-bold"> Try a new place Today..!! </h3>
+    <!--El mapa  ver maps_all-->
+    <h1 class="font-weight-bold text-center">Find a new place today</h1>
+    <div id="map" style=" height: 300px; width: 100%; margin: auto;"></div>
+
+
+    <h3 class="display-4 font-weight-bold text-center"> Try a new place Today..!! </h3>
+    <br>
     {% for place in places %}
     {% if forloop.first %}<div class="row">{% endif %}
         <div class="col-4" style="padding-right: 5px; padding-left: 8px; ">
@@ -25,8 +26,8 @@
                     <a style="text-decoration:none" href="{% url 'place_detail' place.state place.slug %}">
                         {% if place.logo %} <img class="img-fluid" src="{{ place.logo.url }}" alt="..."> {% endif %}
                         <div class="">
-                            <h3 class="card-title  text-center " style="font-size:1.2em;">
-                                {{place.title|truncatechars:16}}</h3>
+                            <p class="card-title  text-center " style="margin-top:5px; font-size:1 em;">
+                                {{place.title|truncatechars:14}}</p>
                         </div>
                     </a>
                     <div class="card-footer" style="border-bottom-left-radius: 25px; border-bottom-right-radius: 25px;">
@@ -44,12 +45,10 @@
     {% endfor %}
 
 
-    <hr>
-    
+
 
     <hr>
     <h1> hasta que todo bien</h1>
-    <hr>
 </div>
 
 

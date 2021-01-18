@@ -33,9 +33,10 @@
 
 
 <!-- Informacion de Sitio -->
-<div class="jumbotron text-center" style="background-color: rgba(255, 255, 255, .2); max-width: 50rem; margin:auto; ">
+<div class="jumbotron text-center"
+    style="background-color: rgba(255, 255, 255, .2); max-width: 50rem; margin:auto; padding: 10; ">
 
-    
+
     <div class="place-logo">
         <a href="#">
             {% if place.logo %}
@@ -46,21 +47,23 @@
         </a>
     </div>
 
-    <!-- Letrero para inscribirse--> 
+    <!-- Letrero para inscribirse-->
     {% if user.is_authenticated %}
     {% else %}
     <div
         style="background-color: rgba(64, 85, 178, 0.774); width: 300px; height: 350px; border-radius: 25px; margin: auto; border: 2px solid rgba(44, 68, 175, 0.932); color: #ffffff;">
         <div style="font-size: 18px; font-family: sans-serif; color: #ffffff;">
             <h3 style="text-align: center; color: #ffffff;">Welcome to Discounts City</h3>
-            <div style="font-size: 30px; font-family: 'Lucida Sans', sans-serif; text-align: center;">Only $1.99 per Month</div>
+            <div style="font-size: 30px; font-family: 'Lucida Sans', sans-serif; text-align: center;">Only $1.99 per
+                Month</div>
             <ul style="list-style-type: none;">
                 <li>Discounts city <strong>membership</strong></li>
                 <li>Restaurant's <strong>discounts</strong></li>
                 <li>Service's <strong>discounts</strong></li>
                 <li>Special <strong>offers</strong></li>
             </ul>
-            <h3 style="color: #ffffff; text-align: center;"><em><strong><a style="color: #ffffff;" href="{% url 'signupuser'%}">Register now</a></strong></em></h3>
+            <h3 style="color: #ffffff; text-align: center;"><em><strong><a style="color: #ffffff;"
+                            href="{% url 'signupuser'%}">Register now</a></strong></em></h3>
 
         </div>
     </div>
@@ -74,7 +77,7 @@
     <!-- Botones descuentos -->
     <div class="container">
         {% if user.is_authenticated %}
-        <h2 style="font-size:8vw;" >Descuentos de {{place.title}}</h2>
+        <h2 style="font-size:40px; margin: 10px;">Descuentos de {{place.title}}</h2>
         <div class="list-group">
             {% for c in cupones %}
             <button class="btn btn-primary-outline" type="button" data-toggle="modal"
@@ -134,45 +137,51 @@
 
 
     <!-- Datos del restaurante -->
-    <div class="container" style="max-width: 50rem; margin:auto;">
+    <div class="container" style="max-width: 50rem; margin:0;">
         <div class="list-group">
-            <div type="" class="list-group-item" data-toggle="collapse" data-target="#servicehours">{{place.title}}
-                Service Hours</div>
+            <div type="" class="list-group-item" data-toggle="collapse" data-target="#servicehours">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-calendar2-week" viewBox="0 0 16 16">
+                    <path
+                        d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z" />
+                    <path
+                        d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4zM11 7.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z" />
+                </svg>
+                {{place.title}}
+                Service Hours
+            </div>
             <div id="servicehours" class="collapse text-center" style="width: auto; margin:auto; ">
                 {{place.horario | safe |center:"15"}}
             </div>
 
 
-            <div type="" class="list-group-item" data-toggle="collapse" data-target="#location">{{place.title}}
-                Location</div>
+            <div type="" class="list-group-item" data-toggle="collapse" data-target="#location">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
+                    <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                </svg>{{place.title}}
+                Location
+            </div>
             <div id="location" class="collapse text-center" style="width: auto; margin:auto; ">
                 {{place.location | safe}}
             </div>
 
-            <a href="tel:+{{place.phone_number}}" style="color: rgb(255, 255, 255);">
-                <div type="" class="list-group-item">
-                    <a href="tel:+{{place.phone_number}}" style="color: rgb(0, 0, 0);">
-                        Call {{place.title}} on {{place.city}}
-
-                </div>
-            </a>
 
         </div>
     </div>
-
-    <br />
-
 </div>
 
 
 <!-- Informacion de MENU -->
 <div class="container" style="max-width: 50rem; margin:auto;">
-    <h1 style="font-size:8vw;">{{place.title}} Menu </h1>
+    <h1 style="font-size:40px;">{{place.title}} Menu </h1>
 
 
 
     {% for i in cat_menu %}
-    
+
 
     <details>
         <summary>
@@ -187,7 +196,7 @@
         {% for fs in cat_menu_detail %}
         {% if fs.product_category == i%}
         <div class="text-center">
-        <h4><em>{{fs.product_category_detail}}</em> </h4>
+            <h4><em>{{fs.product_category_detail}}</em> </h4>
         </div>
         {% endif %}
         {% endfor %}
@@ -198,11 +207,11 @@
 
         {% if fs.product_category == i%}
 
-        <div class="card bg-light text-dark" style="max-width: 50rem; margin:auto; border-radius: 10px;">
-            <div class="card-body" style="">
+        <div class="card bg-light text-dark" style="max-width: 50rem; margin:auto; border-radius: 10px;  margin-top: 10px;">
+            <div class="card-body" style="padding-left: 15; padding-right: 15;">
                 <!--  Elemento de Menu 1-->
                 <div class="card-title text-center">
-                    <h3 style=" margin: 0px;" >{{fs.product_name}} </h3>
+                    <h3 style=" margin: 0px;">{{fs.product_name}} </h3>
                 </div>
                 <!--<div class="foodcontenido">-->
                 <div class="card-text">
@@ -220,16 +229,27 @@
                 </div>
             </div>
         </div>
-        <br>
+
         {% endif %}
         {% endfor %}
 
     </details>
     {% endfor %}
 
-    <br />
+    <hr>
+    <div class="" style="  margin:auto; padding: auto;">
+        <button type="button" class=" btn btn-success btn-lg" style="width: 100%;">
+            <a href="tel:+{{place.phone_number}}" style="color: rgb(0, 0, 0); ">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-telephone-forward" viewBox="0 0 16 16">
+                    <path
+                        d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zm10.762.135a.5.5 0 0 1 .708 0l2.5 2.5a.5.5 0 0 1 0 .708l-2.5 2.5a.5.5 0 0 1-.708-.708L14.293 4H9.5a.5.5 0 0 1 0-1h4.793l-1.647-1.646a.5.5 0 0 1 0-.708z" />
+                </svg>
+                Call {{place.title}} on {{place.city}} </a></button>
+    </div>
+
 </div> <br />
 </div> <br />
-</div>
+
 
 {% endblock %}

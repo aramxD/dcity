@@ -29,9 +29,7 @@ def homepage(request): #FREE ACCESS
         user_membership = current_membership.membership
         user_subscription = get_user_subscription(request)
         select_membership = request.POST.get('membership_type')
-        print(user_membership)
-        print(user_subscription)
-        print(select_membership)
+
     else: 
         user_membership = None
         user_subscription = None
@@ -51,7 +49,7 @@ def discounts_places(request): #FREE ACCESS
     places = Place.objects.all()
     maps_qs = PlaceMap.objects.all()
     maps_key = settings.MAPS_API_KEY 
-    print(maps_key)
+    
     context = {
         'places': places,  
         'maps_qs' : maps_qs,
