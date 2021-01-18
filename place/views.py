@@ -50,9 +50,12 @@ def homepage(request): #FREE ACCESS
 def discounts_places(request): #FREE ACCESS
     places = Place.objects.all()
     maps_qs = PlaceMap.objects.all()
+    maps_key = settings.MAPS_API_KEY 
+    print(maps_key)
     context = {
         'places': places,  
-        'maps_qs' : maps_qs, 
+        'maps_qs' : maps_qs,
+        'maps_key': maps_key, 
     }
     return render(request, 'discounts_places.html', context)
 
@@ -210,11 +213,15 @@ def add_discount(request, state, slug,):
 
 def maps(request):
     maps_qs = PlaceMap.objects.all()
+    maps_key = settings.MAPS_API_KEY 
     
     context = {
+        'maps_key': maps_key,
         'maps_qs' : maps_qs,
         }
     return render(request, 'place/maps.html', context )
+
+
 
 def payment_stripe(request):
     current_membership = get_user_membership(request)

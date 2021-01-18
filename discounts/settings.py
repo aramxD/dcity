@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+
+from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,12 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '6(w)hd#d9q%i_j*bn!!o2my$_rww)23tq&wo4kb^mn&e4exg7a'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = config('DEBUG')
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = config('ALLOWED_HOSTS')
 
 
 # Application definition
@@ -74,7 +76,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'discounts.wsgi.application'
 
 
-# Database DEFAULT
+##### Database DEFAULT
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 #DATABASES = {
@@ -84,19 +86,19 @@ WSGI_APPLICATION = 'discounts.wsgi.application'
 #    }
 #}
 
-#DATABASE POSTGRESQL AWS
+####DATABASE POSTGRESQL AWS
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'demo_DC',
-        'USER': 'aramxD',
-        'PASSWORD': 'LavioletaxD99',
-        'HOST': 'database-2.cd10lnnyhtsu.us-east-2.rds.amazonaws.com',
-        'PORT': '5432',
+        'ENGINE': config('DB_AWS_ENGINE'),
+        'NAME': config('DB_AWS_NAME'),
+        'USER': config('DB_AWS_USER'),
+        'PASSWORD': config('DB_AWS_PASSWORD'),
+        'HOST': config('DB_AWS_HOST'),
+        'PORT': config('DB_AWS_PORT'),
     }
 }
 
-#DATABASE POSTGRESQL LOCAL
+#####DATABASE POSTGRESQL LOCAL
 #DATABASES = {
 #    'default': {
 #        'ENGINE': 'django.db.backends.postgresql',
@@ -174,36 +176,24 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 if DEBUG:
-    STRIPE_PUBLISHABLE_KEY = 'pk_test_aCKLgcF6pfucFjIKXZcnGgI900MSTmB0Zn'
-    STRIPE_SECRET_KEY = 'sk_test_51GZpiRKozHJOGShQUD1tr0RH8Y0rHXswlkf13M8Qy8xgDSyfcT8Vah3CAv5rc37U1HUL0vFtNBl6y8HhJ55eE5cS00raRVGBwo'
+    STRIPE_PUBLISHABLE_KEY = config('STRIPE_DEBUG_PUBLISHABLE_KEY')
+    STRIPE_SECRET_KEY = config('STRIPE_DEBUG_SECRET_KEY')
 
 else:
-    STRIPE_PUBLISHABLE_KEY = 'pk_test_aCKLgcF6pfucFjIKXZcnGgI900MSTmB0Zn'
-    STRIPE_SECRET_KEY = 'sk_test_51GZpiRKozHJOGShQUD1tr0RH8Y0rHXswlkf13M8Qy8xgDSyfcT8Vah3CAv5rc37U1HUL0vFtNBl6y8HhJ55eE5cS00raRVGBwo'
+    STRIPE_PUBLISHABLE_KEY = config('STRIPE_PROD_PUBLISHABLE_KEY')
+    STRIPE_SECRET_KEY = config('STRIPE_PROD_SECRET_KEY')
 
 
 #S3 BUCKETS CONFIG
 
-AWS_ACCESS_KEY_ID = 'AKIA5TS3ALKVIT7HSS5Q'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'discounts-city-bucket-1'
+AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
 
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = config('DEFAULT_FILE_STORAGE')
+STATICFILES_STORAGE = config('STATICFILES_STORAGE')
 
+MAPS_API_KEY = config('MAPS_API_KEY')
 
-
-'''
-<?xml version="1.0" encoding="UTF-8"?>
-<CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
-<CORSRule>
-    <AllowedOrigin>*</AllowedOrigin>
-    <AllowedMethod>GET</AllowedMethod>
-    <AllowedMethod>POST</AllowedMethod>
-    <AllowedMethod>PUT</AllowedMethod>
-    <AllowedHeader>*</AllowedHeader>
-</CORSRule>
-</CORSConfiguration>
-'''
