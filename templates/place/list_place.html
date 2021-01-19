@@ -30,64 +30,64 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content%}
-<hr>
-<hr>
-<hr>
-<div class="place-title">
-    <h1>Places DB</h1>
+<div class="container" style="max-width: 100rem; margin:auto;">
+    <div class="place-title">
+        <h1>Places DB</h1>
 
-    <h2>Este es un listado de lugares </h2>
-</div>
+        <h2>Este es un listado de lugares </h2>
+    </div>
 
 
-<div class="mx-auto" style="width: 700px;">
-    <div class="container">
+    <div class="mx-auto" style="width: 850px; margin:auto;">
+
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>State</th>
-                    <th>City</th>
-                    <th>Phone </th>
-                    <th>Type</th>
-                    <th>Logo</th>
-                    <th>Edit</th>
-                    
+                    <th class="text-center">ID</th>
+                    <th class="text-center">Name</th>
+                    <th class="text-center">State</th>
+                    <th class="text-center">City</th>
+                    <th class="text-center">Phone </th>
+                    <th class="text-center">Type</th>
+                    <th class="text-center">Logo</th>
+                    <th class="text-center">Edit</th>
+
                 </tr>
             </thead>
             {% for place in places %}
             <tbody>
-                <tr> 
-                    <td><a href={% url 'place_detail' place.state place.slug %}> {{place.id}}</a></td>
-                    <td>{{place.title}}</td>
-                    <td>{{place.state}}</td>
-                    <td>{{place.city}}</td>
-                    
-                    <td>{{place.phone_number}}</td>
-                    <td>{{place.place_type}}</td>
+                <tr>
+                    <td class="text-center align-middle"><a href={% url 'place_detail' place.state place.slug %}> {{place.id}}</a></td>
+                    <td class="text-center align-middle">{{place.title}}</td>
+                    <td class="text-center align-middle">{{place.state}}</td>
+                    <td class="text-center align-middle">{{place.city}}</td>
+
+                    <td class="text-center align-middle">{{place.phone_number}}</td>
+                    <td class="text-center align-middle">{{place.place_type}}</td>
                     <td> {% if place.logo %}
                         <img src="{{place.logo.url}}"
-                            style="border: 1px solid #ddd; border-radius: 4px; padding: 5px; width: 100px;" />
-                        {% endif %}</td>
-                    <td><button><a class="nav-link" href="{% url 'view_place' place.id %}">Edit Place</a></button></td>
+                            style="border: 1px solid #ddd; border-radius: 5px; padding: 1px; width: 75px;" />
+                        {% endif %}
+                    </td>
+                    <td><button class="btn btn-outline-primary align-middle"><a class="nav-link" href="{% url 'view_place' place.id %}">Edit Place</a></button>
+                    </td>
 
                 </tr>
                 {% endfor %}
-                
+
 
 
 
 
             </tbody>
         </table>
+
+
+        <br>
+
+
     </div>
-
-    <br>
-    
-
 </div>
-
 
 
 

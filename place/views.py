@@ -74,7 +74,7 @@ def add_place(request): #ADD PLACE ADMIN ONLY
 
 
 def list_place(request): #LIST PLACE ADMIN ONLY
-    places = Place.objects.all()
+    places = Place.objects.all().order_by('id')
     context = {
         'places': places
     }
@@ -245,6 +245,7 @@ def payment_stripe(request):
                     source=token
                     )
             print('Your payment was completed!') 
+            return redirect('discounts_places')
 
         except stripe.error.CardError as e:
             # Since it's a decline, stripe.error.CardError will be caught

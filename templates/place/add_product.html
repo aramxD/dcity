@@ -42,14 +42,14 @@
 </div>
 
 <!-- Formulario-->
-<div class="mx-auto" style="width: 600px;">
+<div class="mx-auto" style="width: 800px;">
     <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <table>
             {{form.as_table}}
         </table>
         <input type="submit" name="Submit">
-        
+
 
         <!--
 <h1> Este es un formulario HTML </h1>
@@ -91,52 +91,54 @@
     </form>
 </div>
 
-
+<br>
 <hr>
-<hr>
 
-<div class="mx-auto" style="width: 700px;">
-    <h1>Registros BD {{place}}</h1>
-    <div class="container">
+<div class="container" style="width: 850px; margin:auto; padding: 0px;">
+    <h1 class="text-center">Registros BD {{place}}</h1>
+    <br>
+    <div class="" >
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>Categoria</th>
-                    <th>Titulo</th>
-                    <th>Descripcion</th>
-                    <th>Imagen</th>
-                    <th>Precio</th>
-                    <th>ID</th>
-                    <th>Eliminar</th>
+                    <th class="text-center align-middle">Categoria</th>
+                    <th class="text-center align-middle">Titulo</th>
+                    <th class="text-center align-middle">Descripcion</th>
+                    <th class="text-center align-middle">Imagen</th>
+                    <th class="text-center align-middle">Precio</th>
+                    <th class="text-center align-middle">ID</th>
+                    <th class="text-center align-middle">Eliminar</th>
                 </tr>
             </thead>
             {% for obj in obj_list %}
             <tbody>
                 <tr>
-                    <td>{{obj.product_category}}</td>
-                    <td>{{obj.product_name}}</td>
-                    <td>{{obj.product_description}}</td>
-                    <td> {% if obj.product_image %}
+                    <td class="text-center align-middle">{{obj.product_category}}</td>
+                    <td class="text-center align-middle">{{obj.product_name}}</td>
+                    <td class="text-center align-middle">{{obj.product_description}}</td>
+                    <td class="text-center align-middle"> {% if obj.product_image %}
                         <img src="{{obj.product_image.url}}"
-                            style="border: 1px solid #ddd; border-radius: 4px; padding: 5px; width: 100px;" />
-                        {% endif %}</td>
-                    <td>${{obj.product_price}}</td>
-                    <td>{{obj.id}}</td>
-<td>
-                    <form method="POST" action="{% url 'delete_product' obj.id %}">
-                        {% csrf_token %}
-                        <button type="submit">Delete</button>
-                        </form></td>
-                    
+                            style="border: 1px solid #ddd; border-radius: 7px; padding: 1px; width: 70px;" />
+                        {% endif %}
+                    </td>
+                    <td class="text-center align-middle">${{obj.product_price}}</td>
+                    <td class="text-center align-middle">{{obj.id}}</td>
+                    <td class="text-center align-middle">
+                        <form method="POST" action="{% url 'delete_product' obj.id %}">
+                            {% csrf_token %}
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+
                 </tr>
                 {% endfor %}
-                
+
             </tbody>
         </table>
     </div>
 
     <br>
-    
+
 
 </div>
 
