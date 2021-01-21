@@ -24,7 +24,7 @@
             <div class="card-deck">
                 <div class="card rounded-4 " style="border-radius: 25px">
                     <a style="text-decoration:none" href="{% url 'place_detail' place.state place.slug %}">
-                        {% if place.logo %} <img class="img-fluid" src="{{ place.logo.url }}" alt="..."> {% endif %}
+                        {% if place.logo %} <img class="img-fluid" src="{{ place.logo.url }}" alt="..." style="border-radius: 25px"> {% endif %}
                         <div class="">
                             <p class="card-title  text-center " style="margin-top:5px; font-size:1 em;">
                                 {{place.title|truncatechars:14}}</p>

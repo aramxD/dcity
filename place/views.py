@@ -24,24 +24,10 @@ def get_user_subscription(request):
 
 
 def homepage(request): #FREE ACCESS
-    if request.user.is_authenticated: 
-        current_membership = get_user_membership(request)
-        user_membership = current_membership.membership
-        user_subscription = get_user_subscription(request)
-        select_membership = request.POST.get('membership_type')
-
-    else: 
-        user_membership = None
-        user_subscription = None
-        
-    places = Place.objects.all()
-    maps_qs = PlaceMap.objects.all()
-    
+    places_home = Place.objects.all().order_by('?')[:4]
     context = {
-        'places': places,  
-        'maps_qs' : maps_qs,
-        'user_membership': user_membership, 
-        'user_subscription': user_subscription,
+        'places_home': places_home,  
+        
     }
     return render(request, 'homepage.html', context)
 
