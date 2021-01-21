@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
-
+{% load static %}
 
 {% block content %}
+
 <style>
     .card {
         flex - direction: row;
@@ -42,117 +43,141 @@
         }
     }
 </style>
+
 <!------Ventajas de discount city ----------->
 <div class="container">
-    <div class="row">
-        <div class="col-6">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12 mt-3">
-                        <div class="card">
-                            <div class="card-horizontal" style="display: flex; flex: 1 1 auto;">
-                                <div class="img-square-wrapper">
-                                    <i class="bi bi-wallet2  fa-6x"></i>
-                                </div>
-                                <div class="card-body">
-                                    <h4 class="card-title"><strong> A SINGLE MEMBERSHIP WITH A LOT OF VALUE</strong></h4>
-                                    <p class="card-text">We are a group of local entrepreneurs who offer you excellent discounts on our products and services</p>
-                                </div>
-                            </div>
-                            
-                        </div>
+    <div class="card text-center" style="max-width: 60rem; margin:auto;">
+
+        <div class="card-body">
+            <h1>soy un home</h1>
+            <br> tu quien eres ?
+            <h3>{{user_membership}} <br>
+                {{user_subscription.active}}</h3>
+            {{select_membership}}
+            <button class="btn btn-outline-success bg-light"><a class="nav-link  text-black"
+                    href="{% url 'discounts_places' %}">Discounts Places</a></button>
+        </div>
+    </div>
+    <br>
+
+    <div class="card-group">
+        <div class="card" style="border: 0;">
+            <div class="card-body card-horizontal" style="display: flex; flex: 1 1 auto;">
+                <div class="card-horizontal" style="display: flex; flex: 1 1 auto;">
+                    <div class="img-square-wrapper">
+                        <i class="bi bi-calculator  fa-6x"></i>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title"><strong> HUNDREDS OF DOLLARS EVERY MONTH</strong></h4>
+                        <p class="card-text">With this subscription you will get discounts in hundreds
+                            of places and special offers every month.</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="col-6">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12 mt-3">
-                        <div class="card">
-                            <div class="card-horizontal" style="display: flex; flex: 1 1 auto;">
-                                <div class="img-square-wrapper">
-                                    <i class="bi bi-calculator  fa-6x"></i>
-                                </div>
-                                <div class="card-body">
-                                    <h4 class="card-title"><strong> HUNDREDS OF DOLLARS EVERY MONTH</strong></h4>
-                                    <p class="card-text">With this subscription you will get discounts in hundreds of places and special offers every month.</p>
-                                </div>
-                            </div>
-                            
-                        </div>
+        <div class="card" style="border: 0;">
+            <div class="card-body card-horizontal" style="display: flex; flex: 1 1 auto;">
+                <div class="card-horizontal" style="display: flex; flex: 1 1 auto;">
+                    <div class="img-square-wrapper">
+                        <i class="bi bi-wallet2  fa-6x"></i>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title"><strong> A SINGLE MEMBERSHIP WITH A LOT OF VALUE</strong>
+                        </h4>
+                        <p class="card-text">We are a group of local entrepreneurs who offer you
+                            excellent discounts on our products and services</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+
+    <div class="card-group">
+        <div class="card" style="border: 0;">
+            <div class="card-body card-horizontal" style="display: flex; flex: 1 1 auto;">
+                <div class="card-horizontal" style="display: flex; flex: 1 1 auto;">
+                    <div class="img-square-wrapper">
+                        <i class="bi bi-credit-card-2-back  fa-6x"></i>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title"><strong> GET MORE VALUE, EVERYWHERE</strong></h4>
+                        <p class="card-text">We want you to have an excellent service from our
+                            community
+                            and we give you a discount so you can meet them</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card" style="border: 0;">
+            <div class="card-body card-horizontal " style="display: flex; flex: 1 1 auto;">
+                <div class="img-square-wrapper">
+                    <i class="bi bi-bookmarks  fa-6x"></i>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title"><strong>
+                            SERVICES AND FOOD FROM YOUR COMMUNITY</strong></h4>
+                    <p class="card-text">Here you will find a lot of discounts from
+                        restaurants and
+                        services near you... This way you'll support every local worker and
+                        place
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<!------ Salto de linea-->
+<div class="container" >
+    
+</div>
+
+<!------Tabla de PRecios ----------->
+
+<style>
+</style>
+<div class="container" style="background-color:#EEEEEE; padding: 80px; margin: auto;">
+    <div class="text-center" <p>I know, this sounds great and it’s still better, <a href="#"><strong> subscribe now
+    </strong></a> discounts city and receive all these benefits and more for a small price</p>
+</div>
     <div class="row">
-        <div class="col-6">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12 mt-3">
-                        <div class="card">
-                            <div class="card-horizontal" style="display: flex; flex: 1 1 auto;">
-                                <div class="img-square-wrapper">
-                                    <i class="bi bi-credit-card-2-back  fa-6x"></i>
-                                </div>
-                                <div class="card-body">
-                                    <h4 class="card-title"><strong> GET MORE VALUE, EVERYWHERE</strong></h4>
-                                    <p class="card-text">We want you to have an excellent service from our community and we give you a discount so you can meet them</p>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
+        <div class="col-md-4 col-sm-3">
+            <div class="card lateral-card">
+                <div class="card-body">
+                    <img src="https://discounts.city/wp-content/uploads/2020/07/Logo-Discounts-city512x512.png"
+                        style="height: auto; width: 90%; margin: auto; ">
                 </div>
             </div>
         </div>
-
-        <div class="col-6">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12 mt-3">
-                        <div class="card">
-                            <div class="card-horizontal" style="display: flex; flex: 1 1 auto;">
-                                <div class="img-square-wrapper">
-                                    <i class="bi bi-bookmarks  fa-6x"></i>
-                                </div>
-                                <div class="card-body">
-                                    <h4 class="card-title"><strong>
-                                        SERVICES AND FOOD FROM YOUR COMMUNITY</strong></h4>
-                                    <p class="card-text">Here you will find a lot of discounts from restaurants and services near you... This way you'll support every local worker and place</p>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="card pricing-card pricing-card-highlighted  pricing-plan-pro">
+                <div class="card-body">
+                    <i class="bi bi-trophy fa-6x pricing-plan-icon "></i>
+                    <p class="pricing-plan-title">Family Member</p>
+                    <h3 class="pricing-plan-cost ml-auto">$1.99<small>/month</small></h3>
+                    <ul class="pricing-plan-features">
+                        <li><i class="check-icon bi bi-check"></i>Discounts city <strong><em>membership</em></strong></li>
+                        <li><i class="check-icon bi bi-check"></i>Restaurant's <strong><em>discounts</em></strong></li>
+                        <li><i class="check-icon bi bi-check"></i>Service's <strong><em>discounts</em></strong></li>
+                        <li><i class="check-icon bi bi-check"></i><em><strong>Special offers</em></strong></li>
+                    </ul>
+                    <a href="#!" class="btn pricing-plan-purchase-btn">Purchase</a>
                 </div>
             </div>
         </div>
-
+        <div class="col-md-4 col-sm-3">
+            <div class="card lateral-card">
+                <div class="card-body">
+                    <img src="https://discounts.city/wp-content/uploads/2020/07/Logo-Discounts-city512x512.png"
+                        style="height: auto; width: 90%; margin: auto; ">
+                </div>
+            </div>
+        </div>
 
     </div>
 </div>
-
-
-<div class="card text-center" style="max-width: 60rem; margin:auto;">
-
-    <div class="card-body">
-        <h1>soy un home</h1>
-        <br> tu quien eres ?
-        <h3>{{user_membership}} <br>
-            {{user_subscription.active}}</h3>
-        {{select_membership}}
-        <button class="btn btn-outline-success bg-light"><a class="nav-link  text-black"
-                href="{% url 'discounts_places' %}">Discounts Places</a></button>
-
-
-    </div>
-</div>
-<br><br><br>
-
-
-
 {% endblock %}
