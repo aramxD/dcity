@@ -45,28 +45,29 @@
 </style>
 
 <!------HERO de discount city ----------->
-<div class="hero-image">
-    <main style=" background-image:  linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.03)),url(https://discounts.city/wp-content/uploads/2020/06/Map-Discounts-City1.jpg);  background-color: rgba(45,45,45,.55);
-    height: 400px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;">
+
+<div class="hero-image"
+    style=" background-image:  linear-gradient(rgba(116, 151, 190, 0.5), rgba(116, 151, 190, 0.5)),url(https://discounts.city/wp-content/uploads/2020/06/Map-Discounts-City1.jpg);  background-color: rgba(45,45,45,.55);
+    height: 300px; background-position: center; background-repeat: no-repeat; background-size: cover; position: relative; margin-top: -20px;">
+
+
+
+    <div style="margin:auto; max-width: 60rem; margin:auto;  position: absolute; top: 80px; left: 20px; right: 20px;">
+        <div class="" style="border-radius: 15px; border: 1 ; margin:0; padding:5px; background: rgba(255, 255, 255, 0.8);">
+            <h1 style="font-size: xx-large; margin:0;">WELCOME TO DISCOUNTS CITY</h1>
+            <h4 style=" margin:0;">MORE VALUE FOR YOU</h4>
+        </div>
+        <br>
         <div class="card text-center pricing-plan-pro"
-            style="max-width: 60rem; margin:auto; background: rgba(0, 0, 0, 0);">
-            <h1>soy un home</h1>
-            <br> tu quien eres ?
-            <h3>{{user_membership}} <br>
-                {{user_subscription.active}}</h3>
-            {{select_membership}}
+            style="border:0; max-width: 60rem; margin:auto; background: rgba(0, 0, 0, 0);">
             <a class="nav-link  text-black pricing-plan-pro btn pricing-plan-purchase-btn"
                 href="{% url 'discounts_places' %}">Discounts Places</a>
-
         </div>
+    </div> 
 
-        <br>
-    </main>
+    <br>
 </div>
+
 
 
 <!------Ventajas de discount city ----------->
@@ -145,11 +146,11 @@
 
 <!------Tabla de PRecios ----------->
 
-<div class="container" style="background-color:#EEEEEE; margin: auto;">
+<div class="container" style="background-color:#EEEEEE; margin: auto; margin-top: -20px; ">
     <div class="text-center">
-        <p style="font-size: 18px;">I know, this sounds great and it’s still better, <a
+        <p style="font-size: 18px;"><em>I know, this sounds great and it’s still better, <a
                 href="{% url 'signupuser' %}"><strong> subscribe now
-                </strong></a> discounts city and receive all these benefits and more for a small price</p> <br>
+                </strong></a> discounts city and receive all these benefits and more for a small price</em></p> <br>
     </div>
     <div class="row">
         <div class="col-md-4 col-sm-3">
@@ -199,10 +200,10 @@
 </div>
 
 <!-- Photo Grid -->
-<div class="container">
-    <div class="header">
-        <h1>Responsive Image Grid</h1>
-        <p>Resize the browser window to see the responsive effect.</p>
+<div class="container"><br>
+    <div class="header text-center">
+        <p>THIS ARE EXAMPLES OF PLACES WHERE YOU CAN GET A DISCOUNT</p>
+        
     </div>
 
 
@@ -216,7 +217,7 @@
                             style="border-radius: 15px"> {% endif %}
 
                     </a>
-                    
+
                 </div>
             </div>
 
@@ -228,6 +229,14 @@
         {% if forloop.last %}</div>{% endif %}
     {% endfor %}
 
-
+    <div class="text-center">
+        <p><em>These were chosen at random, you can see more in </em> </p>
+        <div class="card text-center pricing-plan-pro"
+            style="border:0; max-width: 60rem; margin:auto; background: rgba(0, 0, 0, 0);">
+            <a class="nav-link  text-black pricing-plan-pro btn pricing-plan-purchase-btn"
+                href="{% url 'discounts_places' %}">Discounts Places</a>
+        </div>
+    </div>
+<br>
 </div>
 {% endblock %}
