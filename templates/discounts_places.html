@@ -15,7 +15,73 @@
     <h1 class="font-weight-bold text-center">Find a new place today</h1>
     <div id="map" style=" height: 300px; width: 100%; margin: auto;"></div>
 
+    <!--- Slider de lugares -->
 
+    <div class="container my-4">
+
+        <h2 class="my-5 h2 text-center">Want to try something new...?</h2>
+        
+        <!--Carousel Wrapper-->
+        <div id="carousel-example-2" class="carousel slide carousel-fade z-depth-1-half" data-ride="carousel">
+            
+            <!--Slides-->
+            <div class="carousel-inner" role="listbox">
+                
+                {% for sample in places_sample %}
+                <div class="carousel-item active">
+                    <div class="view">
+                        
+                            {% if sample.logo %} 
+                        <img class="d-block w-100" src="{{ sample.logo.url }}" alt="slide"
+                            style="width:80%; border-radius:30px; backgroun-color:rgba(0,0,0,0)"> 
+                            {% endif %}
+                        <div class="mask rgba-black-light"></div>
+                    </div>
+                    <div class="carousel-caption">
+                        <h3 class="h3-responsive">{{ sample.title}}</h3>
+                        <p>First text</p>
+                    </div>
+                </div>
+                {% endfor %}
+
+<div class="carousel-item">
+                    <!--Mask color-->
+                    <div class="view">
+                        
+                        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg"
+                            alt="Second slide" style="width:80%; border-radius:20px; backgroun-color:rgba(0,0,0,0)">
+                        <div class="mask rgba-black-strong"></div>
+                    </div>
+                    <div class="carousel-caption">
+                        <h3 class="h3-responsive">Strong mask</h3>
+                        <p>Secondary text</p>
+                    </div>
+                </div>
+                
+                
+            </div>
+            <!--/.Slides-->
+            <!--Controls-->
+            <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+            <!--/.Controls-->
+        </div>
+        <!--/.Carousel Wrapper-->
+
+    </div>
+
+
+
+
+
+
+    <!----- Grid de lugares -->
     <h3 class="display-4 font-weight-bold text-center"> Try a new place Today..!! </h3>
     <br>
     {% for place in places %}
@@ -24,7 +90,8 @@
             <div class="card-deck">
                 <div class="card rounded-4 " style="border-radius: 25px">
                     <a style="text-decoration:none" href="{% url 'place_detail' place.state place.slug %}">
-                        {% if place.logo %} <img class="img-fluid" src="{{ place.logo.url }}" alt="..." style="border-radius: 25px"> {% endif %}
+                        {% if place.logo %} <img class="img-fluid" src="{{ place.logo.url }}" alt="..."
+                            style="border-radius: 25px"> {% endif %}
                         <div class="">
                             <p class="card-title  text-center " style="margin-top:5px; font-size:1 em;">
                                 {{place.title|truncatechars:14}}</p>

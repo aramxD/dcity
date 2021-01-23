@@ -35,11 +35,12 @@ def discounts_places(request): #FREE ACCESS
     places = Place.objects.all()
     maps_qs = PlaceMap.objects.all()
     maps_key = settings.MAPS_API_KEY 
-    
+    places_sample = Place.objects.all().order_by('?')[:4]
     context = {
         'places': places,  
         'maps_qs' : maps_qs,
         'maps_key': maps_key, 
+        'places_sample': places_sample,
     }
     return render(request, 'discounts_places.html', context)
 
