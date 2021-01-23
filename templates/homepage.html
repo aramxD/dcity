@@ -46,16 +46,17 @@
 
 <!------HERO de discount city ----------->
 
-<div class="hero-image"
+<div class="hero-image" id="header-section"
     style=" background-image:  linear-gradient(rgba(116, 151, 190, 0.5), rgba(116, 151, 190, 0.5)),url(https://discounts.city/wp-content/uploads/2020/06/Map-Discounts-City1.jpg);  background-color: rgba(45,45,45,.55);
     height: 300px; background-position: center; background-repeat: no-repeat; background-size: cover; position: relative; margin-top: -20px;">
 
 
 
     <div style="margin:auto; max-width: 60rem; margin:auto;  position: absolute; top: 80px; left: 20px; right: 20px;">
-        <div class="" style="border-radius: 15px; border: 1 ; margin:0; padding:5px; background: rgba(255, 255, 255, 0.8);">
-            <h1 style="font-size: xx-large; margin:0;">WELCOME TO DISCOUNTS CITY</h1>
-            <h4 style=" margin:0;">MORE VALUE FOR YOU</h4>
+        <div class=""
+            style="border-radius: 15px; border: 1 ; margin:0; padding:5px; background: rgba(255, 255, 255, 0.8);">
+            <h1 style="font-size: 32px; margin:0;">WELCOME TO DISCOUNTS CITY</h1>
+            <h4 style="font-size: 16px; margin:0;">MORE VALUE FOR YOU</h4>
         </div>
         <br>
         <div class="card text-center pricing-plan-pro"
@@ -63,13 +64,68 @@
             <a class="nav-link  text-black pricing-plan-pro btn pricing-plan-purchase-btn"
                 href="{% url 'discounts_places' %}">Discounts Places</a>
         </div>
-    </div> 
+    </div>
 
     <br>
 </div>
+<!---- Navigation Home -->
+<nav class="navbar navbar-expand-lg pl-3 pl-sm-0" id="navbar">
+    <div class="container">
+        <!-- <div class="navbar-brand-wrapper d-flex w-100">
+            <img src="https://discounts.city/wp-content/uploads/2021/01/Logo-Discounts-City-BN-Menu-min.png" alt="" style="height: 40px;">
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="mdi mdi-menu navbar-toggler-icon"></span>
+            </button>
+        </div> --->
+        <div class="collapse navbar-collapse navbar-menu-wrapper" id="navbarSupportedContent">
+            <ul class="navbar-nav align-items-lg-center align-items-start ml-auto">
+                <li class="d-flex align-items-center justify-content-between pl-4 pl-lg-0">
+                    <div class="navbar-collapse-logo">
+                        <img src="https://discounts.city/wp-content/uploads/2021/01/Logo-Discounts-City-BN-Menu-min.png"
+                            alt="" style="height: 40px;">
+                    </div>
+                    <button class="navbar-toggler close-button" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="mdi mdi-close navbar-toggler-icon pl-5"></span>
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#header-section">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#price-section">Price</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#digital-marketing-section">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#feedback-section">Testimonials</a>
+                </li>
+                <li class="nav-item btn-contact-us pl-4 pl-lg-0">
+                    <button class="btn btn-info" data-toggle="modal" data-target="#exampleModal">Contact Us</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
+<!-----  Texto Explicativo  --- -->
+<div class="container">
+    <div class="" style="padding-top:50px; padding-bottom: 150px">
+        <p class="text-center" style="font-size: 40px;">
+            We are a subscription service that gives you discounts at various businesses in your area
+        </p>
+        <br><br><br>
+        <p class="text-center" style="font-size: 20px;">
+            Save money and support local business
+        </p>
+    </div>
+</div>
 
-
+<hr>
 <!------Ventajas de discount city ----------->
 <div class="container">
     <div class="card-group">
@@ -141,30 +197,20 @@
         </div>
     </div>
 </div>
-<hr style=" ">
+<hr>
 
 
 <!------Tabla de PRecios ----------->
 
-<div class="container" style="background-color:#EEEEEE; margin: auto; margin-top: -20px; ">
+<div class="container" style="background-color:#EEEEEE; margin: auto; margin-top: -20px; " id="price-section">
     <div class="text-center">
         <p style="font-size: 18px;"><em>I know, this sounds great and it’s still better, <a
-                href="{% url 'signupuser' %}"><strong> subscribe now
-                </strong></a> discounts city and receive all these benefits and more for a small price</em></p> <br>
+                    href="{% url 'signupuser' %}"><strong> subscribe now
+                    </strong></a> discounts city and receive all these benefits and more for a small price</em></p> <br>
     </div>
     <div class="row">
         <div class="col-md-4 col-sm-3">
-            <div class="card lateral-card">
-                <div class="card-body">
-                    <ul class="pricing-plan-features text-center">
-                        <i class="bi bi-arrow-90deg-right fa-2x"></i>
-                        <li>---</li>
-                        <li>---</li>
-                        <li>---</li>
-                        <li>---</li>
-                    </ul>
-                </div>
-            </div>
+            
         </div>
         <div class="col-md-4 col-sm-6">
             <div class="card pricing-card pricing-card-highlighted  pricing-plan-pro">
@@ -184,17 +230,7 @@
             </div>
         </div>
         <div class="col-md-4 col-sm-3">
-            <div class="card lateral-card">
-                <div class="card-body">
-                    <ul class="pricing-plan-features text-center">
-                        <i class="bi bi-arrow-90deg-left fa-2x"></i>
-                        <li>---</li>
-                        <li>---</li>
-                        <li>---</li>
-                        <li>---</li>
-                    </ul>
-                </div>
-            </div>
+            
         </div>
     </div>
 </div>
@@ -203,7 +239,7 @@
 <div class="container"><br>
     <div class="header text-center">
         <p>THIS ARE EXAMPLES OF PLACES WHERE YOU CAN GET A DISCOUNT</p>
-        
+
     </div>
 
 
@@ -237,6 +273,104 @@
                 href="{% url 'discounts_places' %}">Discounts Places</a>
         </div>
     </div>
-<br>
+    <br>
 </div>
+<hr>
+<!---  Preguntas frecuentes ---->
+<style>
+    section {
+        padding-top: 4rem;
+        width: 50%;
+        margin: auto;
+    }
+
+    details[open] summary~* {
+        animation: open 0.3s ease-in-out;
+    }
+
+    @keyframes open {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    details summary::-webkit-details-marker {
+        display: none;
+    }
+
+    details summary {
+        width: 100%;
+        padding: 0.5rem 0;
+        border-top: 1px solid black;
+        position: relative;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: 300;
+        list-style: none;
+    }
+
+    details summary:after {
+        content: "+";
+        color: black;
+        position: absolute;
+        font-size: 20px;
+        line-height: 0;
+        margin-top: 0.75rem;
+        right: 0;
+        font-weight: 200;
+        transform-origin: center;
+        transition: 200ms linear;
+    }
+
+    details[open] summary:after {
+        transform: rotate(45deg);
+        font-size: 2rem;
+    }
+
+    details summary {
+        outline: 0;
+    }
+
+    details p {
+        font-size: 15px;
+        margin: 0 0 1rem;
+        padding-top: 1rem;
+    }
+</style>
+<div class="container" style="padding-top:30px; padding-bottom: 50px">
+    
+    <h1 class="text-center" style="font-size: 30px;">FREQUENTLY ASKED QUESTIONS</h1>
+    <br><br>
+    <details>
+        <summary>Where are the discounts?</summary>
+        <p>In all the shops and services that are part of our family in any city, anywhere .. !!</p>
+    </details>
+
+
+    <details>
+        <summary>What kind of discounts will I get??</summary>
+        <p>if you buy your coffee at a local coffee shop they will discount 2 dlls and if you take your clothes to the
+            dry cleaner they will discount 4 dlls, in 1 hour of 1 day you ALREADY saved 6 dlls, if with disconts city
+            you save 6 dlls every day, at end of a year you will have $ 2,190 dlls or more</p>
+    </details>
+
+
+
+    <details>
+        <summary>How many members does the discounts city family have?</summary>
+        <p>At the moment we are a few hundred spread over five cities and each month we add more and more</p>
+    </details>
+
+
+    <details>
+        <summary>Can my business be part of the discounts city family?</summary>
+        <p>Yes, your store, restaurant or service can be part of our family, you can send us an email to
+            discount.citys@gmail.com</p>
+    </details>
+</div>
+
 {% endblock %}
