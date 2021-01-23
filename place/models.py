@@ -33,6 +33,7 @@ class Place(models.Model):
     slug = models.CharField(max_length=30, verbose_name="url del sitio")
     title = models.CharField(max_length=100, verbose_name="Nombre")
     logo = models.ImageField(verbose_name="logos", upload_to="logos", null=True, blank=True )
+    sample = models.ImageField(verbose_name="Imagen Muestra", upload_to="samples", null=True, blank=True )
     horario = models.TextField(verbose_name="horario" , default="soy un horario", blank=True)
     location = models.TextField(verbose_name="Ubicacion de Lugar", default="soy un Mapa :D" , blank=True)
     phone_number = models.CharField(max_length=12, verbose_name="numero de telefono" , blank=True)

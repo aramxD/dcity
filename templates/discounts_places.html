@@ -26,25 +26,7 @@
             
             <!--Slides-->
             <div class="carousel-inner" role="listbox">
-                
-                {% for sample in places_sample %}
                 <div class="carousel-item active">
-                    <div class="view">
-                        
-                            {% if sample.logo %} 
-                        <img class="d-block w-100" src="{{ sample.logo.url }}" alt="slide"
-                            style="width:80%; border-radius:30px; backgroun-color:rgba(0,0,0,0)"> 
-                            {% endif %}
-                        <div class="mask rgba-black-light"></div>
-                    </div>
-                    <div class="carousel-caption">
-                        <h3 class="h3-responsive">{{ sample.title}}</h3>
-                        <p>First text</p>
-                    </div>
-                </div>
-                {% endfor %}
-
-<div class="carousel-item">
                     <!--Mask color-->
                     <div class="view">
                         
@@ -52,11 +34,28 @@
                             alt="Second slide" style="width:80%; border-radius:20px; backgroun-color:rgba(0,0,0,0)">
                         <div class="mask rgba-black-strong"></div>
                     </div>
-                    <div class="carousel-caption">
-                        <h3 class="h3-responsive">Strong mask</h3>
-                        <p>Secondary text</p>
+                    <div class="carousel-caption bg-gradient-dark text-white">
+                        <h3 class="p-responsive">Strong mask</h3>
+                        
                     </div>
                 </div>
+                {% for sample in places_sample %}
+                <div class="carousel-item ">
+                    <div class="view">
+                        
+                            {% if sample.sample %} 
+                        <img class="d-block w-100" src="{{ sample.sample.url }}" alt="slide"
+                            style="width:80%; border-radius:30px; backgroun-color:rgba(0,0,0,0)"> 
+                            {% endif %}
+                        <div class="mask rgba-black-light"></div>
+                    </div>
+                    <div class="carousel-caption">
+                        <h3 class="h3-responsive bg-gradient-dark text-white">{{ sample.title}}</h3>
+                        
+                    </div>
+                </div>
+                {% endfor %}
+
                 
                 
             </div>
