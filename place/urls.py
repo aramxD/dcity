@@ -22,6 +22,7 @@ urlpatterns = [
     path('<str:state>/<str:slug>/add-cupon', views.add_cupon, name='add_cupon'),
     path('<str:state>/<str:slug>/add-discount', views.add_discount, name='add_discount'),
     path('maps/', views.maps, name="maps"),
+    path('contact/', views.contact, name="contact"),
     path('payment_stripe/', views.payment_stripe, name="payment_stripe"),
 
 ]

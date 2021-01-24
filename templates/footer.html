@@ -61,12 +61,12 @@
                 </p>
                 <br>
 
-                <form class="form-inline" action="/action_page.php">
+                <form class="form-inline" action="/contact/" method="POST">{% csrf_token %}
                     <div class="form-group">
-                        <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Enter Full Name" id="fullnamecontact">
-                        <input type="email" class="form-control mb-2 mr-sm-2" placeholder="Enter email" id="emailcontact">
-                        <input type="email" class="form-control mb-2 mr-sm-2" placeholder="Enter Phone Number"
-                            id="email">
+                        <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Enter Full Name" name=txtName id="fullnamecontact">
+                        <input type="email" class="form-control mb-2 mr-sm-2" placeholder="Enter email" name=txtEmail id="emailcontact">
+                        <input type="number" class="form-control mb-2 mr-sm-2" placeholder="Enter Phone Number" name=txtPhoneNumber
+                            id="phonenumber">
                     </div>
 
                     <button type="submit" class="btn btn-primary">Submit</button>

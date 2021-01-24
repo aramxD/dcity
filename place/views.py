@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.core.mail import send_mail
 from .models import *
 from .forms import PlaceForm, ProductForm, CuponForm
 from django.http import HttpResponseRedirect
@@ -43,6 +44,17 @@ def discounts_places(request): #FREE ACCESS
         'places_sample': places_sample,
     }
     return render(request, 'discounts_places.html', context)
+
+
+def contact(request):
+    if request.method == 'POST':
+        asunto = "Prospecto " + request.POST["txtName"] + " discounts.city (Formulario web)"
+        mensaje = "La persona " + request.POST["txtName"] + ". Esta interesada, contactar al telefono: " + request.POST["txtPhoneNumber"] + " o Email: " + request.POST["txtEmail"] 
+        email_from = settings.EMAIL_HOST_USER
+        email_to = ["info.discount.citys@gmail.com"]
+        send_mail(asunto, mensaje, email_from, email_to, fail_silently=False)
+        return redirect('discounts_places') 
+    return redirect('discounts_places')
 
 
 def add_place(request): #ADD PLACE ADMIN ONLY
