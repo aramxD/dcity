@@ -7,7 +7,7 @@
 {% load static %}
 
 {% block content %}
-<div class="container">
+<div class="container" style="max-width:700px">
 
     <h1 class="display-1 font-weight-bold text-center"> Discounts Places </h1>
     <hr>
@@ -17,7 +17,7 @@
 
     <!--- Slider de lugares -->
 
-    <div class="container my-4">
+    <div class="container my-4" style="max-width:700px">
 
         <h2 class="my-5 h2 text-center">Want to try something new...?</h2>
         
@@ -26,33 +26,22 @@
             
             <!--Slides-->
             <div class="carousel-inner" role="listbox">
-                <div class="carousel-item active">
-                    <!--Mask color-->
-                    <div class="view">
-                        
-                        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg"
-                            alt="Second slide" style="width:80%; border-radius:20px; backgroun-color:rgba(0,0,0,0)">
-                        <div class="mask rgba-black-strong"></div>
-                    </div>
-                    <div class="carousel-caption bg-gradient-dark text-white">
-                        <h3 class="p-responsive">Strong mask</h3>
-                        
-                    </div>
-                </div>
+                
                 {% for sample in places_sample %}
-                <div class="carousel-item ">
+                {% if forloop.first %}<div class="carousel-item active">{% else %} <div class="carousel-item "> {% endif %}
                     <div class="view">
                         
                             {% if sample.sample %} 
                         <img class="d-block w-100" src="{{ sample.sample.url }}" alt="slide"
-                            style="width:80%; border-radius:30px; backgroun-color:rgba(0,0,0,0)"> 
+                            style="width:80%; border-radius:30px; background-color:rgba(0,0,0,0)"> 
                             {% endif %}
                         <div class="mask rgba-black-light"></div>
                     </div>
-                    <div class="carousel-caption">
-                        <h3 class="h3-responsive bg-gradient-dark text-white">{{ sample.title}}</h3>
+                    <a style="text-decoration:none" href="{% url 'place_detail' sample.state sample.slug %}">
+                    <div class="carousel-caption card" style="background-color: rgba(34,34,34,.5); border-radius:8px; padding:5; ">
+                        <h3 class="h3-responsive bg-gradient-dark text-black" style="margin:0; font-size:16px;">{{ sample.title}}</h3>
                         
-                    </div>
+                    </div></a>
                 </div>
                 {% endfor %}
 
