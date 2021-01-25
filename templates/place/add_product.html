@@ -101,19 +101,21 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th class="text-center align-middle">Categoria</th>
+                    <th class="text-center align-middle">ID</th>
+                    <th class="text-center align-middle">Categoria / Orden</th>
                     <th class="text-center align-middle">Titulo</th>
                     <th class="text-center align-middle">Descripcion</th>
                     <th class="text-center align-middle">Imagen</th>
                     <th class="text-center align-middle">Precio</th>
-                    <th class="text-center align-middle">ID</th>
+                    
                     <th class="text-center align-middle">Eliminar</th>
                 </tr>
             </thead>
             {% for obj in obj_list %}
             <tbody>
                 <tr>
-                    <td class="text-center align-middle">{{obj.product_category}}</td>
+                    <td class="text-center align-middle"><a href={% url 'edit_product' place.state place.slug obj.id %}>{{obj.id}}</a></td>
+                    <td class="text-center align-middle">{{obj.product_category}} / {{obj.product_orden}}</td>
                     <td class="text-center align-middle">{{obj.product_name}}</td>
                     <td class="text-center align-middle">{{obj.product_description}}</td>
                     <td class="text-center align-middle"> {% if obj.product_image %}
@@ -122,7 +124,7 @@
                         {% endif %}
                     </td>
                     <td class="text-center align-middle">${{obj.product_price}}</td>
-                    <td class="text-center align-middle">{{obj.id}}</td>
+                    
                     <td class="text-center align-middle">
                         <form method="POST" action="{% url 'delete_product' obj.id %}">
                             {% csrf_token %}

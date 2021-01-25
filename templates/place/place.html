@@ -231,8 +231,8 @@
 
         {% for fs in cat_menu_detail %}
         {% if fs.product_category == i%}
-        <div class="text-center">
-            <h4><em>{{fs.product_category_detail}}</em> </h4>
+        <div class="text-center" >
+            <h4 style="font-size:22px;"><em>{{fs.product_category_detail}}</em> </h4>
         </div>
         {% endif %}
         {% endfor %}
@@ -248,10 +248,10 @@
             <div class="card-body" style="padding-left: 15; padding-right: 15;">
                 <!--  Elemento de Menu 1-->
                 <div class="card-title text-center">
-                    <h3 style=" margin: 0px;">{{fs.product_name}} </h3>
+                    <h3 style=" margin: 0px; font-size:26px;">{{fs.product_name}} </h3>
                 </div>
                 <!--<div class="foodcontenido">-->
-                <div class="card-text">
+                <div class="card-text" style="font-size:18px;">
                     <p><em>{{fs.product_description}}</em></p>
                 </div>
 
@@ -262,7 +262,7 @@
                 {% endif %}
 
                 <div class="text-right">
-                    <p style=" margin: 0px;"><strong>${{fs.product_price}}</strong></p>
+                    <p style="font-size:20px; margin: 0px;"><strong>{% if fs.product_price %}${{fs.product_price}}{% endif %}</strong></p>
                 </div>
             </div>
         </div>

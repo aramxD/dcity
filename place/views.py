@@ -36,7 +36,7 @@ def discounts_places(request): #FREE ACCESS
     places = Place.objects.all()
     maps_qs = PlaceMap.objects.all()
     maps_key = settings.MAPS_API_KEY 
-    places_sample = Place.objects.all().filter(sample__isnull=False).order_by('?')[:20] 
+    places_sample = Place.objects.all().filter(sample__isnull=False).order_by('?')[:5] 
     context = {
         'places': places,  
         'maps_qs' : maps_qs,
@@ -141,7 +141,7 @@ def add_product(request, state, slug, ):
     place = get_object_or_404(Place, slug=slug) # Trae la informacion del restaurante
     queryset = ServiceMenu.objects.all() # Trae la informacion del menu
     lugar = place.id
-    fs_list = queryset.filter(place =lugar).order_by('product_category')
+    fs_list = queryset.filter(place =lugar).order_by('product_orden')
     fs_category = queryset.filter(place =lugar).values_list('product_category', flat=True).distinct()    
     if request.method == 'GET':
         context = {
@@ -155,6 +155,36 @@ def add_product(request, state, slug, ):
             form = ProductForm(request.POST, request.FILES)
             newproduct = form.save(commit=False)
             newproduct.save()
+            context = {'place': place, 
+                    'form': ProductForm(),
+                    'obj_list': fs_list,
+                    'obj_category': fs_category,}
+            return render(request, 'place/add_product.html', context)
+        except ValueError:
+            context = {'form': form, 'error':'La informacion esta mal' }
+            return render(request, 'place/add_place.html', context)
+
+
+def edit_product(request, state, slug, product_pk):
+    place = get_object_or_404(Place, slug=slug) # Trae la informacion del restaurante
+    product = get_object_or_404(ServiceMenu, pk=product_pk)
+    queryset = ServiceMenu.objects.all() # Trae la informacion del menu
+    lugar = place.id
+    fs_list = queryset.filter(place =lugar).order_by('product_orden')
+    fs_category = queryset.filter(place =lugar).values_list('product_category', flat=True).distinct()    
+    if request.method == 'GET':
+        form = ProductForm(instance=product)
+        context = {
+            'place': place, 
+            'form': form,
+            'obj_list': fs_list,
+            'obj_category': fs_category,}
+        return render(request, 'place/add_product.html', context)
+    else:
+        try:
+            form = ProductForm(request.POST, request.FILES, instance=product)
+            
+            form.save()
             context = {'place': place, 
                     'form': ProductForm(),
                     'obj_list': fs_list,

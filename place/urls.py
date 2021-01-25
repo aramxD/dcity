@@ -17,6 +17,7 @@ urlpatterns = [
     path('delete_place/<int:place_pk>/delete', views.delete_place, name="delete_place"),
     path('<str:state>/<str:slug>/', views.place_detail, name='place_detail'),
     path('<str:state>/<str:slug>/add-product', views.add_product, name='add_product'),
+    path('<str:state>/<str:slug>/<str:product_pk>/edit-product', views.edit_product, name='edit_product'),
     path('product/<int:product_pk>/delete', views.delete_product, name="delete_product"),
     path('get_discount/<int:cupon_pk>/discount', views.get_discount, name="get_discount"),
     path('<str:state>/<str:slug>/add-cupon', views.add_cupon, name='add_cupon'),
