@@ -7,7 +7,7 @@ class MembershipAdmin(admin.ModelAdmin):
 
 
 class UserMembershipAdmin(admin.ModelAdmin):
-    list_display = ('id', 'user', 'membership',   ) #visualizar columnas
+    list_display = ('id', 'user', 'membership',  'stripe_customer_id', ) #visualizar columnas
 
 
 class SubscriptionAdmin(admin.ModelAdmin):

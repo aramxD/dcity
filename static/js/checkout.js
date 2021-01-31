@@ -60,7 +60,7 @@ form.addEventListener('submit', function (event) {
 
 var successElement = document.getElementById('stripe-token-handler');
 document.querySelector('.wrapper').addEventListener('click', function () {
-    successElement.className = 'invisible';
+    successElement.className = 'is-hidden';
 });
 
 function stripeTokenHandler(token) {
@@ -77,3 +77,6 @@ function stripeTokenHandler(token) {
     // Submit the form
     form.submit();
 }
+
+
+
