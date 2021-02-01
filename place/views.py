@@ -10,6 +10,8 @@ from django.conf import settings
 import stripe
 from django.views.generic import (TemplateView)
 from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
+
 
 # Create your views here.
 
@@ -50,6 +52,7 @@ def contact(request):
 
 
 @login_required
+@staff_member_required
 def add_place(request): #ADD PLACE ADMIN ONLY
     if request.method == 'GET':
         context = {'form': PlaceForm() }
@@ -66,6 +69,7 @@ def add_place(request): #ADD PLACE ADMIN ONLY
 
 
 @login_required
+@staff_member_required
 def list_place(request): #LIST PLACE ADMIN ONLY
     places = Place.objects.all().order_by('id')
     context = {
@@ -75,6 +79,7 @@ def list_place(request): #LIST PLACE ADMIN ONLY
 
 
 @login_required
+@staff_member_required
 def delete_place(request, place_pk): #DELETE PLACE ADMIN ONLY
     place = get_object_or_404(Place, pk=place_pk)
     if request.method == 'POST':
@@ -83,6 +88,7 @@ def delete_place(request, place_pk): #DELETE PLACE ADMIN ONLY
 
 
 @login_required
+@staff_member_required
 def view_place(request, place_pk): #CRUD PLACES ADMIN ONLY
     place = get_object_or_404(Place, pk=place_pk)
     if request.method == 'GET':
@@ -134,6 +140,7 @@ def place_detail(request, state, slug): #FREE ACCESS
 
 
 @login_required
+@staff_member_required
 def add_product(request, state, slug, ):
     place = get_object_or_404(Place, slug=slug) # Trae la informacion del restaurante
     queryset = ServiceMenu.objects.all() # Trae la informacion del menu
@@ -163,6 +170,7 @@ def add_product(request, state, slug, ):
 
 
 @login_required
+@staff_member_required
 def edit_product(request, state, slug, product_pk):
     place = get_object_or_404(Place, slug=slug) # Trae la informacion del restaurante
     product = get_object_or_404(ServiceMenu, pk=product_pk)
@@ -194,6 +202,7 @@ def edit_product(request, state, slug, product_pk):
 
 
 @login_required
+@staff_member_required
 def add_cupon(request, state, slug,):
     place = get_object_or_404(Place, slug=slug) # Trae la informacion del restaurante
     if request.method == 'GET':
@@ -207,6 +216,7 @@ def add_cupon(request, state, slug,):
 
 
 @login_required
+@staff_member_required
 def delete_product(request,  product_pk):
     product = get_object_or_404(ServiceMenu, pk=product_pk)
     if request.method == 'POST':
@@ -228,6 +238,7 @@ def get_discount(request,  cupon_pk):
 
 
 @login_required
+@staff_member_required
 def add_discount(request, state, slug,):
     place = get_object_or_404(Place, slug=slug) # Trae la informacion del restaurante
     if request.method == 'GET':
@@ -252,6 +263,7 @@ def maps(request):
 
 
 @login_required
+@staff_member_required
 def dashboard(request):
     places = Place.objects.all()
     maps_qs = PlaceMap.objects.all()
