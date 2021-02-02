@@ -45,9 +45,9 @@
     
     .navtext-button{
         color:rgb(255, 255, 255);
-        font-size: 20px;
-        padding-left: 10px;
-        padding-right: 10px;
+        font-size: 18px;
+        padding-left: 5px;
+        padding-right: 5px;
     }
     .boton-magico {
         color: #10bb87;
@@ -297,18 +297,15 @@
         <div class="collapse navbar-collapse " id="myNavbar">
 
             <!-- Menu User-->
-            <ul class="nav navbar-nav  ">
+            <ul class="nav navbar-nav justify-content-end ">
                 <li class="nav-item navtext-button">
-                    <a class="nav-link " style="color:rgb(255, 255, 255);" href="{% url 'homepage' %}">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link " style="color:rgb(255, 255, 255);" href="{% url 'homepage' %}">Home <span class="sr-only"></span></a>
                 </li>
                 <li class="nav-item navtext-button">
                     <a class="nav-link " style="color:rgb(255, 255, 255);" href="#price-section">Price</a>
-                </li>
+                </li> 
                 <li class="nav-item navtext-button">
-                    <a class="nav-link " style="color:rgb(255, 255, 255);" href="#digital-marketing-section">Blog</a>
-                </li>
-                <li class="nav-item navtext-button">
-                    <a class="nav-link" style="color:rgb(255, 255, 255);" href="#feedback-section">Contact Us</a>
+                    <a class="nav-link" style="color:rgb(255, 255, 255);" href="#">Contact Us</a>
                 </li>
 
                 {% if user.is_authenticated %}
@@ -327,8 +324,8 @@
                 </li>
 
                 {% else %}
-                <li><a style="color:rgb(255, 255, 255);" href="{% url 'signupuser' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li><a style="color:rgb(255, 255, 255);" href="{% url 'loginuser' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li class="nav-item active navtext-button"><a style="color:rgb(255, 255, 255);" href="{% url 'signupuser' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li class="nav-item active navtext-button"><a style="color:rgb(255, 255, 255);" href="{% url 'loginuser' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 {% endif %}
             </ul>
         </div>

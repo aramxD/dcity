@@ -1,55 +1,74 @@
 {% if places_home %}
 
+
 {% else %}
+<style>
+    .navtext-button{
+        color:rgb(255, 255, 255);
+        font-size: 18px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+</style>
 <!-- Menu Navbar-->
-<nav style="margin:0; " class="navbar navbar-inverse navbar-expand-md navbar-light bg-secondary text-black">
+<nav style="margin:0; " class="navbar navbar-expand-md bg-secondary ">
     <div class="container-fluid">
         <!-- Menu Logo-->
         <div class="navbar-header ">
+
+            <a class="display-5 navbar-brand" style="padding:0" href="{% url 'discounts_places' %}"><img
+                    src="https://discounts.city/wp-content/uploads/2021/01/Logo-Discounts-City-BN-Menu-min.png" alt=""
+                    style="height: 40px;"></a>
+        </div>
+
+        <div class="navbar-header ">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+                <i class="fas fa-bars fa-2x"></i>
+
             </button>
-            <a class="display-5 navbar-brand" href="{% url 'discounts_places' %}"><img src="https://discounts.city/wp-content/uploads/2021/01/Logo-Discounts-City-BN-Menu-min.png" alt="" style="height: 40px;"></a>
+
         </div>
 
         <!-- Menu Admin-->
 
         <div class="collapse navbar-collapse " id="myNavbar">
 
-
-            {% if user.is_superuser %}
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-                <li class="nav-item active"><a class="nav-link bg-secondary text-black" href="{% url 'add_place' %}">Add
-                        Place</a></li>
-                <li class="nav-item active"><a class="nav-link bg-secondary text-black"
-                        href="{% url 'list_place' %}">List Places</a></li>
-                {% if place %}
-                <li class="nav-item active"><a class="nav-link bg-secondary text-black"
-                        href="{% url 'view_place' place.id %}">Edit Place</a>
+            <!-- Menu User-->
+            <ul class="nav navbar-nav justify-content-end ">
+                <li class="nav-item navtext-button">
+                    <a class="nav-link " style="color:rgb(255, 255, 255);" href="{% url 'homepage' %}">Home <span
+                            class="sr-only"></span></a>
                 </li>
-                <li class="nav-item active"><a class="nav-link bg-secondary text-black"
-                        href="{% url 'add_product' place.state place.slug %}">
+            
+            
+            
+                {% if user.is_superuser %}
+            
+                <li class="nav-item active navtext-button"><a class="nav-link bg-secondary text-black" style="color:rgb(255, 255, 255);" href="{% url 'add_place' %}">Add
+                        Place</a></li>
+                <li class="nav-item active navtext-button"><a class="nav-link bg-secondary text-black" style="color:rgb(255, 255, 255);" href="{% url 'list_place' %}">List
+                        Places</a></li>
+                {% if place %}
+                <li class="nav-item active navtext-button"><a class="nav-link bg-secondary text-black" style="color:rgb(255, 255, 255);" href="{% url 'view_place' place.id %}">Edit
+                        Place</a>
+                </li>
+                <li class="nav-item active navtext-button"><a class="nav-link bg-secondary text-black"
+                        style="color:rgb(255, 255, 255);" href="{% url 'add_product' place.state place.slug %}">
                         Add Product</a></li>
-                <li class="nav-item active"><a class="nav-link bg-secondary text-black"
-                        href="{% url 'add_cupon' place.state place.slug %}">
+                <li class="nav-item active navtext-button"><a class="nav-link bg-secondary text-black"
+                        style="color:rgb(255, 255, 255);" href="{% url 'add_cupon' place.state place.slug %}">
                         Add Cupon</a></li>
                 {% endif %}
-            </ul>
+            
             {% endif %}
 
-            <!-- Menu User-->
-            <ul class="nav navbar-nav navbar-right ">
-                <a class="display-5 navbar-brand" href="{% url 'homepage' %}">Home</a>
                 {% if user.is_authenticated %}
                 <!-- Navbar text-->
-                <li>
-                    <span class="navbar-text">
-                        Welcome {{user.username}} </span>
+                <li class="nav-item active navtext-button">
+                    <a class="nav-link" style="color:rgb(255, 255, 255);">Welcome {{user.username}} </a>
                 </li>
                 <!-- LogOut-->
-                <li>
+                <li class="nav-item active navtext-button">
                     <form action="{% url 'logoutuser' %}" method="POST">
                         {% csrf_token %}
                         <button class="btn btn-outline-success bg-light" type="submit">
@@ -59,12 +78,15 @@
                 </li>
 
                 {% else %}
-                <li><a href="{% url 'signupuser' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li><a href="{% url 'loginuser' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li><a style="color:rgb(255, 255, 255);" href="{% url 'signupuser' %}"><span
+                            class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a style="color:rgb(255, 255, 255);" href="{% url 'loginuser' %}"><span
+                            class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 {% endif %}
             </ul>
         </div>
     </div>
 </nav>
+
 
 {% endif %}
