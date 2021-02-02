@@ -11,6 +11,7 @@ import stripe
 from django.views.generic import (TemplateView)
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
+from django.views.decorators.clickjacking import xframe_options_exempt
 
 
 # Create your views here.
@@ -250,7 +251,9 @@ def add_discount(request, state, slug,):
         newcupon.save()
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
-
+@login_required
+@staff_member_required
+@xframe_options_exempt
 def maps(request):
     maps_qs = PlaceMap.objects.all()
     maps_key = settings.MAPS_API_KEY 
@@ -265,7 +268,7 @@ def maps(request):
 @login_required
 @staff_member_required
 def dashboard(request):
-    places = Place.objects.all()
+    places = Place.objects.all().order_by('id')
     maps_qs = PlaceMap.objects.all()
     maps_key = settings.MAPS_API_KEY 
     places_sample = Place.objects.all().filter(sample__isnull=False).order_by('?')[:5] 
@@ -277,3 +280,32 @@ def dashboard(request):
         }
     return render(request, 'dashboard/dashboard.html', context )
 
+
+@login_required
+@staff_member_required
+@xframe_options_exempt
+def dash_place_list(request):
+    places = Place.objects.all().order_by('-id')
+    context = {
+        'places': places,  
+        }
+    return render(request, 'dashboard/dash-place-list.html', context )
+
+
+@login_required
+@staff_member_required
+@xframe_options_exempt
+def dash_user_list(request):
+    users = User.objects.all().order_by('-id')
+    
+    cupones = CuponBlock.objects.filter(used=1)
+    #user_cupones = cupones.filter(user=User)
+    #print(cupones.first)
+    #print(user_cupones)
+    context = {
+        'users': users,
+        #'user_cupones':user_cupones,  
+        }
+    return render(request, 'dashboard/dash-user-list.html', context )
+
+    

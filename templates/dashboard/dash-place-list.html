@@ -1,0 +1,86 @@
+<style>
+    .place-title {
+        background-color: rgb(255, 255, 255);
+        text-align: center;
+    }
+
+    .place-logo {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 75%;
+        height: auto;
+        align-self: center;
+    }
+
+    .detail {
+        background-color: #eee;
+        color: #444;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        transition: 0.4s;
+    }
+</style>
+{% extends 'dashboard/base.html' %}
+
+
+{% block content %}
+
+
+
+<div class="container" style="width:100%">
+    <div class="place-title">
+        <h1 class="text-center">Listado de Lugares</h1>
+
+        <h2 class="text-center">Lugares registrados: {{places.count}} </h2>
+    </div>
+    <div class="mx-auto" style=" margin:auto;">
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th class="text-center" style="width: 30px;">ID</th>
+                    <th class="text-center" style="width: 100px;">Name</th>
+
+                    <th class="text-center" style="width: 80px;">Type</th>
+                    <th class="text-center" style="width: 80px;">Logo</th>
+                    <th class="text-center" style="width: 50px;">Edit</th>
+
+                </tr>
+            </thead>
+            {% for place in places %}
+            <tbody>
+                <tr>
+                    <td class="text-center align-middle"><a href="{% url 'place_detail' place.state place.slug %}">
+                            {{place.id}}</a></td>
+                    <td class="text-center align-middle">{{place.title}}</td>
+
+                    <td class="text-center align-middle">{{place.place_type}}</td>
+                    <td> {% if place.logo %}
+                        <img src="{{place.logo.url}}"
+                            style="border: 1px solid #ddd; border-radius: 5px; padding: 1px; width: 65px;" />
+                        {% endif %}
+                    </td>
+                    <td><button class="btn btn-outline-primary btn-sm align-middle"><a class="nav-link"
+                                href="{% url 'view_place' place.id %}">Edit Place</a></button>
+                    </td>
+
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+
+
+        <br>
+
+
+    </div>
+</div>
+
+{% endblock %}

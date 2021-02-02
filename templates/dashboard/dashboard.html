@@ -2,9 +2,29 @@
 
 
 {% block content %}
+<div class="main">
+<div class="container" style="">
+    <div class="row">
+        <div class="col-sm card">
+            <iframe src="{% url 'dash_user_list' %}" width="100%" height="600" style="border:none;"> </iframe>
+        </div>
 
-soy un dashboard
+        <div class="col-sm card"  style=" margin:auto;">
+            <iframe src="{% url 'dash_place_list' %}" width="100%" height="900" style="border:none; scroll-behavior: unset;"> </iframe>
+        </div>
 
+        
+    </div>
 
-
+    <div class="row">
+        <div class="col-sm card">
+            <iframe src="{% url 'maps' %}" width="100%" height="600" style="border:none;"> </iframe>
+        </div>
+        <div class="col-sm card">
+            <iframe src="http://127.0.0.1:8000/list-place/" width="100%" height="400" style="border:none;"> </iframe>
+        </div>
+        
+    </div>
+</div>
+</div>
 {% endblock %}

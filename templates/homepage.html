@@ -1,119 +1,342 @@
 {% extends 'base.html' %}
+
 {% load static %}
 
 {% block content %}
-
 <style>
-    .card {
-        flex - direction: row;
-        align - items: center;
+    .hero-image {
+        background-image: linear-gradient(rgba(116, 151, 190, 0.5), rgba(116, 151, 190, 0.5)), url(https://discounts.city/wp-content/uploads/2020/06/Map-Discounts-City1.jpg);
+        background-color: rgba(45, 45, 45, .55);
+        height: 300px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        margin-top: -20px;
     }
 
-    .card - title {
-        font - weight: bold;
+    .hero-text {
+        margin: auto;
+        max-width: 60rem;
+        position: absolute;
+        top: 80px;
+        left: 20px;
+        right: 20px;
     }
 
-    .card img {
-        width: 30 %;
-        border - top - right - radius: 0;
-        border - bottom - left - radius: calc(0.25rem - 1px);
+    .hero-titles {
+        border-radius: 15px;
+        border: 1;
+        margin: 0;
+        padding: 5px;
+        background: rgba(255, 255, 255, 0.8);
     }
 
-    @media only screen and(max - width: 768px) {
-        a {
-            display: none;
+    .boton-magico {
+
+        width: 40px;
+        height: 40px;
+        font-size: 40px;
+        line-height: 1;
+        margin-bottom: 24px;
+        margin: auto;
+    }
+
+    
+    .navtext-button{
+        color:rgb(255, 255, 255);
+        font-size: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .boton-magico {
+        color: #10bb87;
+    }
+
+    .boton-magico-btn {
+        color: #000;
+        font-size: 16px;
+        font-weight: bold;
+        width: 145px;
+        height: 45px;
+        border-radius: 22.5px;
+        -webkit-transition: all 0.4s;
+        transition: all 0.4s;
+        position: relative;
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+        -webkit-box-pack: center;
+        justify-content: center;
+    }
+
+    .boton-magico .boton-magico-btn {
+        background-color: #10bb87;
+        color: #fff;
+    }
+
+    .boton-magico .boton-magico-btn:hover {
+        box-shadow: 0 3px 0 0 #0a7554;
+    }
+
+    .boton-magico .boton-magico-btn:active {
+        -webkit-transform: translateY(3px);
+        transform: translateY(3px);
+        box-shadow: none;
+    }
+
+    .container-precios {
+        background-color: #e9e9e9;
+        margin: auto;
+        margin-top: -20px;
+    }
+
+    .pricing-card {
+        border: 1;
+        border-radius: 10px;
+        margin-bottom: 40px;
+        text-align: center;
+        -webkit-transition: all 0.6s;
+        transition: all 0.6s;
+    }
+
+    .pricing-card:hover {
+        box-shadow: 0 2px 40px 0 rgba(205, 205, 205, 0.55);
+    }
+
+    .pricing-card.pricing-card-highlighted {
+        box-shadow: 0 2px 40px 0 rgba(205, 205, 205, 0.55);
+    }
+
+    .pricing-card:hover {
+        box-shadow: 0 2px 40px 0 rgba(205, 205, 205, 0.55);
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+    }
+
+    .pricing-card .card-body {
+        padding-top: 55px;
+        padding-bottom: 62px;
+    }
+
+    .pricing-plan-title {
+        font-size: 30px;
+        color: #000;
+        margin-bottom: 11px;
+        font-weight: normal;
+    }
+
+    .pricing-plan-cost {
+        font-size: 40px;
+        color: #000;
+        font-weight: bold;
+        margin-bottom: 29px;
+    }
+
+    .pricing-plan-icon {
+        display: inline-block;
+        
+        margin-bottom: 54px;
+    }
+
+    .pricing-plan-enterprise .pricing-plan-icon {
+        color: #5d78ff;
+    }
+
+    .pricing-plan-features {
+        list-style: none;
+        padding-left: 0;
+        font-size: 14px;
+        line-height: 2.14;
+        margin-bottom: 35px;
+        color: #303132;
+    }
+
+    .pricing-plan-purchase-btn {
+        color: #000;
+        font-size: 16px;
+        font-weight: bold;
+        width: 145px;
+        height: 45px;
+        border-radius: 22.5px;
+        -webkit-transition: all 0.4s;
+        transition: all 0.4s;
+        position: relative;
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+        -webkit-box-pack: center;
+        justify-content: center;
+    }
+
+    .pricing-plan-enterprise .pricing-plan-purchase-btn {
+        background-color: #5d78ff;
+        color: #fff;
+    }
+
+    .pricing-plan-enterprise .pricing-plan-purchase-btn:hover {
+        box-shadow: 0 3px 0 0 #1138ff;
+    }
+
+    .pricing-plan-enterprise .pricing-plan-purchase-btn:active {
+        -webkit-transform: translateY(3px);
+        transform: translateY(3px);
+        box-shadow: none;
+    }
+
+    section {
+        padding-top: 4rem;
+        width: 50%;
+        margin: auto;
+    }
+
+    details[open] summary~* {
+        animation: open 0.3s ease-in-out;
+    }
+
+    @keyframes open {
+        0% {
+            opacity: 0;
         }
 
-        .card - body {
-            padding: 0.5em 1.2em;
-        }
-
-        .card - body.card - text {
-            margin: 0;
-        }
-
-        .card img {
-            width: 50 %;
+        100% {
+            opacity: 1;
         }
     }
 
-    @media only screen and(max - width: 1200px) {
-        .card img {
-            width: 40 %;
-        }
+    details summary::-webkit-details-marker {
+        display: none;
+    }
+
+    details summary {
+        width: 100%;
+        padding: 0.5rem 0;
+        border-top: 1px solid black;
+        position: relative;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: 300;
+        list-style: none;
+    }
+
+    details summary:after {
+        content: "+";
+        color: black;
+        position: absolute;
+        font-size: 30px;
+        line-height: 0;
+        margin-top: 0.75rem;
+        right: 0;
+        font-weight: 200;
+        transform-origin: center;
+        transition: 200ms linear;
+    }
+
+    details[open] summary:after {
+        transform: rotate(45deg);
+        font-size: 3rem;
+    }
+
+    details summary {
+        outline: 0;
+    }
+
+    details p {
+        font-size: 15px;
+        margin: 0 0 1rem;
+        padding-top: 1rem;
     }
 </style>
 
+
+
 <!------HERO de discount city ----------->
 
-<div class="hero-image" id="header-section"
-    style=" background-image:  linear-gradient(rgba(116, 151, 190, 0.5), rgba(116, 151, 190, 0.5)),url(https://discounts.city/wp-content/uploads/2020/06/Map-Discounts-City1.jpg);  background-color: rgba(45,45,45,.55);
-    height: 300px; background-position: center; background-repeat: no-repeat; background-size: cover; position: relative; margin-top: -20px;">
-
-
-
-    <div style="margin:auto; max-width: 60rem; margin:auto;  position: absolute; top: 80px; left: 20px; right: 20px;">
-        <div class=""
-            style="border-radius: 15px; border: 1 ; margin:0; padding:5px; background: rgba(255, 255, 255, 0.8);">
-            <h1 style="font-size: 32px; margin:0;">WELCOME TO DISCOUNTS CITY</h1>
-            <h4 style="font-size: 16px; margin:0;">MORE VALUE FOR YOU</h4>
+<div class="hero-image" id="header-section" >
+    <div class="hero-text">
+        <div class="hero-titles">
+            <h1 class="text-center" style="font-size: 32px; margin:0;">WELCOME TO DISCOUNTS CITY</h1>
+            <h4 class="text-center" style="font-size: 16px; margin:0;">MORE VALUE FOR YOU</h4>
         </div>
         <br>
-        <div class="card text-center pricing-plan-pro"
-            style="border:0; max-width: 60rem; margin:auto; background: rgba(0, 0, 0, 0);">
-            <a class="nav-link  text-black pricing-plan-pro btn pricing-plan-purchase-btn"
-                href="{% url 'discounts_places' %}">Discounts Places</a>
+        <div class="boton-magico">
+            <a class="nav-link  text-black btn boton-magico-btn" href="{% url 'discounts_places' %}">Discounts
+                Places</a>
         </div>
     </div>
 
     <br>
 </div>
 <!---- Navigation Home -->
-<nav class="navbar navbar-expand-lg pl-3 pl-sm-0" id="navbar">
-    <div class="container">
-        <!-- <div class="navbar-brand-wrapper d-flex w-100">
-            <img src="https://discounts.city/wp-content/uploads/2021/01/Logo-Discounts-City-BN-Menu-min.png" alt="" style="height: 40px;">
-            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"
-                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="mdi mdi-menu navbar-toggler-icon"></span>
+<nav style="margin:0; " class="navbar navbar-expand-md bg-secondary ">
+    <div class="container-fluid">
+        <!-- Menu Logo-->
+        <div class="navbar-header ">
+
+            <a class="display-5 navbar-brand" style="padding:0" href="{% url 'discounts_places' %}"><img
+                    src="https://discounts.city/wp-content/uploads/2021/01/Logo-Discounts-City-BN-Menu-min.png" alt=""
+                    style="height: 40px;"></a>
+        </div>
+
+        <div class="navbar-header ">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <i class="fas fa-bars fa-2x"></i>
+                
             </button>
-        </div> --->
-        <div class="collapse navbar-collapse navbar-menu-wrapper" id="navbarSupportedContent">
-            <ul class="navbar-nav align-items-lg-center align-items-start ml-auto">
-                <li class="d-flex align-items-center justify-content-between pl-4 pl-lg-0">
-                    <div class="navbar-collapse-logo">
-                        <img src="https://discounts.city/wp-content/uploads/2021/01/Logo-Discounts-City-BN-Menu-min.png"
-                            alt="" style="height: 40px;">
-                    </div>
-                    <button class="navbar-toggler close-button" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="mdi mdi-close navbar-toggler-icon pl-5"></span>
-                    </button>
+
+        </div>
+
+        <!-- Menu Admin-->
+
+        <div class="collapse navbar-collapse " id="myNavbar">
+
+            <!-- Menu User-->
+            <ul class="nav navbar-nav  ">
+                <li class="nav-item navtext-button">
+                    <a class="nav-link " style="color:rgb(255, 255, 255);" href="{% url 'homepage' %}">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#header-section">Home <span class="sr-only">(current)</span></a>
+                <li class="nav-item navtext-button">
+                    <a class="nav-link " style="color:rgb(255, 255, 255);" href="#price-section">Price</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#price-section">Price</a>
+                <li class="nav-item navtext-button">
+                    <a class="nav-link " style="color:rgb(255, 255, 255);" href="#digital-marketing-section">Blog</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#digital-marketing-section">Blog</a>
+                <li class="nav-item navtext-button">
+                    <a class="nav-link" style="color:rgb(255, 255, 255);" href="#feedback-section">Contact Us</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#feedback-section">Testimonials</a>
+
+                {% if user.is_authenticated %}
+                <!-- Navbar text-->
+                <li class="nav-item active navtext-button">
+                    <a class="nav-link" style="color:rgb(255, 255, 255);">Welcome {{user.username}} </a>
+                </li >
+                <!-- LogOut-->
+                <li class="nav-item active navtext-button">
+                    <form action="{% url 'logoutuser' %}" method="POST">
+                        {% csrf_token %}
+                        <button class="btn btn-outline-success bg-light" type="submit">
+                            <span class="glyphicon glyphicon-user"></span>
+                            Logout </button>
+                    </form>
                 </li>
-                <li class="nav-item btn-contact-us pl-4 pl-lg-0">
-                    <button class="btn btn-info" data-toggle="modal" data-target="#exampleModal">Contact Us</button>
-                </li>
+
+                {% else %}
+                <li><a style="color:rgb(255, 255, 255);" href="{% url 'signupuser' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a style="color:rgb(255, 255, 255);" href="{% url 'loginuser' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                {% endif %}
             </ul>
         </div>
     </div>
 </nav>
 
 <!-----  Texto Explicativo  --- -->
-<div class="container">
+<div class="jumbotron jumbotron-fluid">
     <div class="" style="padding-top:50px; padding-bottom: 150px">
         <p class="text-center" style="font-size: 40px;">
             We are a subscription service that gives you discounts at various businesses in your area
@@ -125,7 +348,6 @@
     </div>
 </div>
 
-<hr>
 <!------Ventajas de discount city ----------->
 <div class="container">
     <div class="card-group">
@@ -202,7 +424,7 @@
 
 <!------Tabla de PRecios ----------->
 
-<div class="container" style="background-color:#EEEEEE; margin: auto; margin-top: -20px; " id="price-section">
+<div class="container container-precios" id="price-section">
     <div class="text-center">
         <p style="font-size: 18px;"><em>I know, this sounds great and it’s still better, <a
                     href="{% url 'signupuser' %}"><strong> subscribe now
@@ -210,28 +432,26 @@
     </div>
     <div class="row">
         <div class="col-md-4 col-sm-3">
-            
+
         </div>
         <div class="col-md-4 col-sm-6">
             <div class="card pricing-card pricing-card-highlighted  pricing-plan-pro">
                 <div class="card-body">
-                    <i class="bi bi-trophy fa-6x pricing-plan-icon "></i>
+                    <i class="bi bi-trophy fa-6x  pricing-plan-icon "></i>
                     <h2 class="pricing-plan-title">Family Member</h2>
                     <h4 class="pricing-plan-cost ml-auto">$1.99<small>/month</small></h4>
                     <ul class="pricing-plan-features">
-                        <li><i class="check-icon bi bi-check"></i>Discounts city <strong><em>membership</em></strong>
+                        <li style="margin-bottom: 14px;"><i class="check-icon bi bi-check"></i>Discounts city <strong><em>membership</em></strong>
                         </li>
-                        <li><i class="check-icon bi bi-check"></i>Restaurant's <strong><em>discounts</em></strong></li>
-                        <li><i class="check-icon bi bi-check"></i>Service's <strong><em>discounts</em></strong></li>
-                        <li><i class="check-icon bi bi-check"></i><em><strong>Special offers</em></strong></li>
+                        <li style="margin-bottom: 14px;"><i class="check-icon bi bi-check"></i>Restaurant's <strong><em>discounts</em></strong></li>
+                        <li style="margin-bottom: 14px;"><i class="check-icon bi bi-check"></i>Service's <strong><em>discounts</em></strong></li>
+                        <li style="margin-bottom: 14px;"><i class="check-icon bi bi-check"></i><em><strong>Special offers</em></strong></li>
                     </ul>
                     <a href="{% url 'signupuser' %}" class="btn pricing-plan-purchase-btn">Purchase</a>
                 </div>
             </div>
         </div>
-        <div class="col-md-4 col-sm-3">
-            
-        </div>
+        
     </div>
 </div>
 
@@ -251,13 +471,9 @@
                     <a style="text-decoration:none" href="{% url 'place_detail' place.state place.slug %}">
                         {% if place.logo %} <img class="img-fluid" src="{{ place.logo.url }}" alt="..."
                             style="border-radius: 15px"> {% endif %}
-
                     </a>
-
                 </div>
             </div>
-
-
         </div>
         {% if forloop.counter|divisibleby:4 %}
     </div><br>
@@ -277,72 +493,9 @@
 </div>
 <hr>
 <!---  Preguntas frecuentes ---->
-<style>
-    section {
-        padding-top: 4rem;
-        width: 50%;
-        margin: auto;
-    }
 
-    details[open] summary~* {
-        animation: open 0.3s ease-in-out;
-    }
-
-    @keyframes open {
-        0% {
-            opacity: 0;
-        }
-
-        100% {
-            opacity: 1;
-        }
-    }
-
-    details summary::-webkit-details-marker {
-        display: none;
-    }
-
-    details summary {
-        width: 100%;
-        padding: 0.5rem 0;
-        border-top: 1px solid black;
-        position: relative;
-        cursor: pointer;
-        font-size: 20px;
-        font-weight: 300;
-        list-style: none;
-    }
-
-    details summary:after {
-        content: "+";
-        color: black;
-        position: absolute;
-        font-size: 20px;
-        line-height: 0;
-        margin-top: 0.75rem;
-        right: 0;
-        font-weight: 200;
-        transform-origin: center;
-        transition: 200ms linear;
-    }
-
-    details[open] summary:after {
-        transform: rotate(45deg);
-        font-size: 2rem;
-    }
-
-    details summary {
-        outline: 0;
-    }
-
-    details p {
-        font-size: 15px;
-        margin: 0 0 1rem;
-        padding-top: 1rem;
-    }
-</style>
 <div class="container" style="padding-top:30px; padding-bottom: 50px">
-    
+
     <h1 class="text-center" style="font-size: 30px;">FREQUENTLY ASKED QUESTIONS</h1>
     <br><br>
     <details>

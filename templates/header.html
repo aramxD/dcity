@@ -11,15 +11,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="display-5 navbar-brand" href="{% url 'discounts_places' %}">Discounts City</a>
+            <a class="display-5 navbar-brand" href="{% url 'discounts_places' %}"><img src="https://discounts.city/wp-content/uploads/2021/01/Logo-Discounts-City-BN-Menu-min.png" alt="" style="height: 40px;"></a>
         </div>
-        
-        <!-- Menu Admin-->
-        
-        <div class="collapse navbar-collapse " id="myNavbar">
-        
 
-        {% if user.is_superuser %}
+        <!-- Menu Admin-->
+
+        <div class="collapse navbar-collapse " id="myNavbar">
+
+
+            {% if user.is_superuser %}
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
                 <li class="nav-item active"><a class="nav-link bg-secondary text-black" href="{% url 'add_place' %}">Add
                         Place</a></li>
@@ -37,27 +37,27 @@
                         Add Cupon</a></li>
                 {% endif %}
             </ul>
-        {% endif %}
+            {% endif %}
 
             <!-- Menu User-->
             <ul class="nav navbar-nav navbar-right ">
-            <a class="display-5 navbar-brand" href="{% url 'homepage' %}">Home</a>
+                <a class="display-5 navbar-brand" href="{% url 'homepage' %}">Home</a>
                 {% if user.is_authenticated %}
                 <!-- Navbar text-->
                 <li>
                     <span class="navbar-text">
-                Welcome {{user.username}} </span> 
-                </li> 
+                        Welcome {{user.username}} </span>
+                </li>
                 <!-- LogOut-->
-                    <li>
-                        <form action="{% url 'logoutuser' %}" method="POST">
-                            {% csrf_token %}
-                            <button class="btn btn-outline-success bg-light" type="submit"> 
-                                <span class="glyphicon glyphicon-user"></span>
-                                Logout </button>
-                        </form>
-                    </li>
-                
+                <li>
+                    <form action="{% url 'logoutuser' %}" method="POST">
+                        {% csrf_token %}
+                        <button class="btn btn-outline-success bg-light" type="submit">
+                            <span class="glyphicon glyphicon-user"></span>
+                            Logout </button>
+                    </form>
+                </li>
+
                 {% else %}
                 <li><a href="{% url 'signupuser' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                 <li><a href="{% url 'loginuser' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>

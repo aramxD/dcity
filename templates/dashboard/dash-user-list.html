@@ -1,0 +1,48 @@
+{% extends 'dashboard/base.html' %}
+
+
+{% block content %}
+
+
+
+
+<div class="place-title">
+    <h1 class="text-center">User List</h1>
+
+    <h2 class="text-center">Usuarios registrados: {{users.count}} </h2>
+</div>
+<div class="mx-auto" style=" margin:auto;">
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th class="text-center" style="width: 50px;">ID</th>
+                <th class="text-center" style="width: 100px;">Name</th>
+
+                <th class="text-center" style="width: 100px;">Email</th>
+                <th class="text-center" style="width: 100px;">Cupones</th>
+
+
+            </tr>
+        </thead>
+        {% for user in users %}
+        <tbody>
+            <tr>
+                <td class="text-center align-middle"><a href="#"> {{user.id}}</a></td>
+                <td class="text-center align-middle">{{user.first_name}}</td>
+
+                <td class="text-center align-middle">{{user.email}}</td>
+                <td class="text-center align-middle">{{user.CuponBlock.id}}</td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+
+    <br>
+
+
+</div>
+
+{% endblock %}

@@ -24,6 +24,10 @@ urlpatterns = [
     path('<str:state>/<str:slug>/add-discount', views.add_discount, name='add_discount'),
     path('maps/', views.maps, name="maps"),
     path('contact/', views.contact, name="contact"),
+
+
+    #Dashboard views
     path('dashboard/', views.dashboard, name="dashboard"),
-    
+    path('dash_place_list/', views.dash_place_list, name="dash_place_list"),
+    path('dash_user_list/', views.dash_user_list, name="dash_user_list"),
 ]
