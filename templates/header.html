@@ -9,9 +9,24 @@
         padding-left: 10px;
         padding-right: 10px;
     }
+
+        #navbar a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    .sticky {
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+
+    .sticky + .content {
+  padding-top: 60px;
+}
 </style>
 <!-- Menu Navbar-->
-<nav style="margin:0; " class="navbar navbar-expand-md bg-secondary ">
+<nav id="navbar" style="margin:0; " class="navbar navbar-expand-md bg-secondary sticky-top">
     <div class="container-fluid">
         <!-- Menu Logo-->
         <div class="navbar-header ">
@@ -24,7 +39,7 @@
         <div class="navbar-header ">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                 <i class="fas fa-bars fa-2x"></i>
-
+                
             </button>
 
         </div>
@@ -88,5 +103,18 @@
     </div>
 </nav>
 
+<script>
+window.onscroll = function() {myFunction()};
 
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
 {% endif %}

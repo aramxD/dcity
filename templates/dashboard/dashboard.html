@@ -4,13 +4,16 @@
 {% block content %}
 <div class="main">
 <div class="container" style="">
+    <div class="title" >
+        <h1>Dashboard</h1>
+    </div>
     <div class="row">
-        <div class="col-sm card">
-            <iframe src="{% url 'dash_user_list' %}" width="100%" height="600" style="border:none;"> </iframe>
+        <div class="col-sm-5 card">
+            <iframe src="{% url 'dash_user_list' %}" width="100%" height="500" style="border:none;"> </iframe>
         </div>
 
-        <div class="col-sm card"  style=" margin:auto;">
-            <iframe src="{% url 'dash_place_list' %}" width="100%" height="900" style="border:none; scroll-behavior: unset;"> </iframe>
+        <div class="col-sm-7 card">
+            <iframe src="{% url 'dash_place_list' %}" width="100%" height="500" style="border:none; scroll-behavior: unset;"> </iframe>
         </div>
 
         

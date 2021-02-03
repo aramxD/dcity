@@ -4,6 +4,7 @@
 
 {% block content %}
 <style>
+
     .hero-image {
         background-image: linear-gradient(rgba(116, 151, 190, 0.5), rgba(116, 151, 190, 0.5)), url(https://discounts.city/wp-content/uploads/2020/06/Map-Discounts-City1.jpg);
         background-color: rgba(45, 45, 45, .55);
@@ -49,6 +50,21 @@
         padding-left: 5px;
         padding-right: 5px;
     }
+
+    #navbar a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    .sticky {
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+
+    .sticky + .content {
+  padding-top: 60px;
+}
     .boton-magico {
         color: #10bb87;
     }
@@ -274,7 +290,7 @@
     <br>
 </div>
 <!---- Navigation Home -->
-<nav style="margin:0; " class="navbar navbar-expand-md bg-secondary ">
+<nav id="navbar" style="margin:0; " class="navbar navbar-expand-md bg-secondary sticky-top">
     <div class="container-fluid">
         <!-- Menu Logo-->
         <div class="navbar-header ">
@@ -522,5 +538,21 @@
             discount.citys@gmail.com</p>
     </details>
 </div>
+
+
+<script>
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
 
 {% endblock %}

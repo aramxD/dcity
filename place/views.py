@@ -28,10 +28,10 @@ def homepage(request): #FREE ACCESS
     return render(request, 'homepage.html', context)
 
 def discounts_places(request): #FREE ACCESS
-    places = Place.objects.all()
+    places = Place.objects.filter(featured=True).order_by('?')
     maps_qs = PlaceMap.objects.all()
     maps_key = settings.MAPS_API_KEY 
-    places_sample = Place.objects.all().filter(sample__isnull=False).order_by('?')[:5] 
+    places_sample = Place.objects.all().filter(featured=True).filter(sample__isnull=False).order_by('?')[:5] 
     context = {
         'places': places,  
         'maps_qs' : maps_qs,
@@ -179,6 +179,7 @@ def edit_product(request, state, slug, product_pk):
     lugar = place.id
     fs_list = queryset.filter(place =lugar).order_by('product_orden')
     fs_category = queryset.filter(place =lugar).values_list('product_category', flat=True).distinct()    
+    request.GET
     if request.method == 'GET':
         form = ProductForm(instance=product)
         context = {
@@ -300,7 +301,7 @@ def dash_user_list(request):
     
     cupones = CuponBlock.objects.filter(used=1)
     #user_cupones = cupones.filter(user=User)
-    #print(cupones.first)
+    print(cupones.first)
     #print(user_cupones)
     context = {
         'users': users,

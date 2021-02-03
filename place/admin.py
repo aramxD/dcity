@@ -13,7 +13,7 @@ class PlaceTypeAdmin(admin.ModelAdmin):
 class PlaceAdmin(admin.ModelAdmin):
     
     readonly_fields = ('timestamp', )
-    list_display = ('title', 'state') #visualizar columnas
+    list_display = ('title', 'state', 'city', 'featured') #visualizar columnas
     ordering = ('-timestamp', ) #ordenar listas
     search_fields = ('title',)  #buscador
 
