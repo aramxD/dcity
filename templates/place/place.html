@@ -224,7 +224,7 @@
     <details>
         <summary>
             <div class="card-title">
-                <h2 style=" margin: 7px;" class="font-weight-bold" style="letter-spacing: 2px;"> {{i}} </h2>
+                <h3 style=" margin: 7px;" class="" style="letter-spacing: 2px; font-size:26px;"> {{i}} </h3>
             </div>
         </summary>
 
@@ -232,7 +232,7 @@
         {% for fs in cat_menu_detail %}
         {% if fs.product_category == i%}
         <div class="text-center" >
-            <h4 style="font-size:22px;"><em>{{fs.product_category_detail}}</em> </h4>
+            <h4 style="font-size:20px;"><em>{{fs.product_category_detail| safe }}</em> </h4>
         </div>
         {% endif %}
         {% endfor %}
@@ -252,7 +252,7 @@
                 </div>
                 <!--<div class="foodcontenido">-->
                 <div class="card-text" style="font-size:18px;">
-                    <p><em>{{fs.product_description}}</em></p>
+                    <p><em>{{fs.product_description| safe }}</em></p>
                 </div>
 
                 {% if fs.product_image %}
