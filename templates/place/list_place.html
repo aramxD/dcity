@@ -47,9 +47,9 @@
                     <th class="text-center">Name</th>
                     <th class="text-center">State</th>
                     <th class="text-center">City</th>
-                    <th class="text-center">Phone </th>
                     <th class="text-center">Type</th>
                     <th class="text-center">Logo</th>
+                    <th class="text-center">Ready?</th>
                     <th class="text-center">Edit</th>
 
                 </tr>
@@ -61,17 +61,16 @@
                     <td class="text-center align-middle">{{place.title}}</td>
                     <td class="text-center align-middle">{{place.state}}</td>
                     <td class="text-center align-middle">{{place.city}}</td>
-
-                    <td class="text-center align-middle">{{place.phone_number}}</td>
                     <td class="text-center align-middle">{{place.place_type}}</td>
                     <td> {% if place.logo %}
                         <img src="{{place.logo.url}}"
                             style="border: 1px solid #ddd; border-radius: 5px; padding: 1px; width: 75px;" />
                         {% endif %}
                     </td>
-                    <td><button class="btn btn-outline-primary align-middle"><a class="nav-link" href="{% url 'view_place' place.id %}">Edit Place</a></button>
-                    </td>
-
+                    <td class="text-center align-middle">{% if place.featured %} <i class="bi bi-check-all fa-2x">
+                    {% else %}<i class="bi bi-x-circle fa-2x"></i> {% endif %}</i></td>
+                    <td><button class="btn btn-info btn-sm align-middle"><a class="nav-link" href="{% url 'view_place' place.id %}">Edit Place</a></button></td>
+                    
                 </tr>
                 {% endfor %}
 
