@@ -73,7 +73,7 @@
             <h1 class="place-title"> {{place.title}} </h1>
             {% endif %}
         </a>
-    </div>
+    </div><br>
 
     <!-- Letrero para inscribirse-->
     {% if membership %} 
@@ -91,8 +91,13 @@
                 <li>Service's <strong>discounts</strong></li>
                 <li>Special <strong>offers</strong></li>
             </ul>
+            {% if user.is_authenticated  %}
             <h3 style="color: #ffffff; text-align: center;"><em><strong><a style="color: #ffffff;"
-                            href="{% url 'signupuser'%}">Register now</a></strong></em></h3>
+                            href="{% url 'checkout'%}">Finish your registration</a></strong></em></h3>
+            {% else %}
+            <h3 style="color: #ffffff; text-align: center;"><em><strong><a style="color: #ffffff;"
+                href="{% url 'signupuser'%}">Register now</a></strong></em></h3>
+            {% endif %}
 
         </div>
     </div>
@@ -105,7 +110,7 @@
 
     <!-- Botones descuentos -->
     <div class="container">
-        {% if membership %}
+        {% if membership%}
         <h2 style="font-size:40px; margin: 10px;">Descuentos de {{place.title}}</h2>
         <div class="list-group">
             {% for c in cupones %}
