@@ -64,7 +64,7 @@
 <div class="jumbotron text-center"
     style="background-color: rgba(255, 255, 255, .2); max-width: 50rem; margin:auto; padding: 10; ">
 
-
+<br><br><br><br>
     <div class="place-logo">
         <a href="#">
             {% if place.logo %}
@@ -76,7 +76,8 @@
     </div>
 
     <!-- Letrero para inscribirse-->
-    {% if user.is_authenticated %}
+    {% if membership %} 
+    
     {% else %}
     <div
         style="background-color: rgba(64, 85, 178, 0.774); width: 300px; height: 350px; border-radius: 25px; margin: auto; border: 2px solid rgba(44, 68, 175, 0.932); color: #ffffff;">
@@ -104,7 +105,7 @@
 
     <!-- Botones descuentos -->
     <div class="container">
-        {% if user.is_authenticated %}
+        {% if membership %}
         <h2 style="font-size:40px; margin: 10px;">Descuentos de {{place.title}}</h2>
         <div class="list-group">
             {% for c in cupones %}

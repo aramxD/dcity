@@ -22,8 +22,15 @@
     }
 
     .sticky + .content {
-  padding-top: 60px;
-}
+    padding-top: 60px;
+    }
+
+    .navbar-nav>li>a{
+        padding:5px;
+        margin-left: 10px;
+        margin-right: 10px;
+        vertical-align: baseline;
+    }
 </style>
 <!-- Menu Navbar-->
 <nav id="navbar" style="margin:0; " class="navbar navbar-expand-md bg-secondary sticky-top">
@@ -39,15 +46,11 @@
         <div class="navbar-header ">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                 <i class="fas fa-bars fa-2x"></i>
-                
             </button>
-
         </div>
 
         <!-- Menu Admin-->
-
         <div class="collapse navbar-collapse " id="myNavbar">
-
             <!-- Menu User-->
             <ul class="nav navbar-nav justify-content-end ">
                 <li class="nav-item navtext-button">
@@ -79,8 +82,11 @@
 
                 {% if user.is_authenticated %}
                 <!-- Navbar text-->
-                <li class="nav-item active navtext-button">
+                <li class="nav-item active ">
                     <a class="nav-link" style="color:rgb(255, 255, 255);">Welcome {{user.username}} </a>
+                </li>
+                <li class="nav-item active navtext-button">
+                    <a class="btn btn-success " href="{% url 'settings' %}" style="color:rgb(255, 255, 255);">Settings </a>
                 </li>
                 <!-- LogOut-->
                 <li class="nav-item active navtext-button">

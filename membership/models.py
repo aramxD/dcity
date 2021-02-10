@@ -35,20 +35,20 @@ class UserMembership(models.Model):
     def __str__(self):
         return self.user.username
 
-def post_save_usermembership_create(sender, instance, created, *args, **kwargs):
-    c = Membership.objects.filter( membership_type='Member')
-    select_membership = c.first()
-    if created:
-        UserMembership.objects.get_or_create(user=instance)
-
-    user_membership, created = UserMembership.objects.get_or_create(user=instance)
-
-    if user_membership.stripe_customer_id is None or user_membership.stripe_customer_id == '':
-        new_customer_id = stripe.Customer.create(email=instance.email)
-        user_membership.stripe_customer_id = new_customer_id['id']
-        user_membership.membership = select_membership
-        user_membership.save()
-post_save.connect(post_save_usermembership_create, sender=settings.AUTH_USER_MODEL)
+#def post_save_usermembership_create(sender, instance, created, *args, **kwargs):
+#    c = Membership.objects.filter( membership_type='Member')
+#    select_membership = c.first()
+#    if created:
+#        UserMembership.objects.get_or_create(user=instance)
+#
+#    user_membership, created = UserMembership.objects.get_or_create(user=instance)
+#
+#    if user_membership.stripe_customer_id is None or user_membership.stripe_customer_id == '':
+#        new_customer_id = stripe.Customer.create(email=instance.email)
+#        user_membership.stripe_customer_id = new_customer_id['id']
+#        user_membership.membership = select_membership
+#        user_membership.save()
+#post_save.connect(post_save_usermembership_create, sender=settings.AUTH_USER_MODEL)
 
 
 class Subscription(models.Model):
@@ -58,6 +58,14 @@ class Subscription(models.Model):
 
     def __str__(self):
         return self.user_membership.user.username
+
+
+class Customer(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
+    stripeid = models.CharField(max_length=255, null=True, blank=True)
+    stripe_subscription_id = models.CharField(max_length=255, null=True, blank=True)
+    cancel_at_period_end = models.BooleanField(default=False, null=True, blank=True)
+    membership = models.BooleanField(default=False, null=True, blank=True)
 
 
 class CuponBlock(models.Model):

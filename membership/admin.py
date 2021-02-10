@@ -13,6 +13,9 @@ class UserMembershipAdmin(admin.ModelAdmin):
 class SubscriptionAdmin(admin.ModelAdmin):
     pass
 
+class CustomerAdmin(admin.ModelAdmin):
+    list_display = ('user', 'stripe_subscription_id', 'cancel_at_period_end', 'membership')
+
 class CuponBlockAdmin(admin.ModelAdmin):
     list_display = ('id', 'user', 'cupon', 'used',  ) #visualizar columnas
 
@@ -22,5 +25,6 @@ class CuponBlockAdmin(admin.ModelAdmin):
 admin.site.register(Membership, MembershipAdmin)
 admin.site.register(UserMembership, UserMembershipAdmin)
 admin.site.register(Subscription, SubscriptionAdmin) 
+admin.site.register(Customer, CustomerAdmin) 
 admin.site.register(CuponBlock, CuponBlockAdmin)
 

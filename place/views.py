@@ -118,26 +118,37 @@ def place_detail(request, state, slug): #FREE ACCESS
     fs_category_detail = queryset.filter(place =lugar).distinct('product_category_detail')
     
     
-    if request.user.is_authenticated:
-        qs_descuentos = CuponBlock.objects.filter(user=request.user)
-        cupon_descuento = qs_descuentos.filter(cupon__restaurant=lugar)
-        context = { 
-        'place': place, 
-        'food_services': fs_list,
-        'cat_menu': fs_category,
-        'cat_menu_detail': fs_category_detail,
-        'cupones': cupon_descuento,
-        }
-        return render(request, 'place/place.html', context)
-    else:
+    if request.user.is_anonymous:
         print('usuario no registrado')
         context = { 
             'place': place, 
             'food_services': fs_list,
             'cat_menu': fs_category,
-            
             }
         return render(request, 'place/place.html', context)
+
+    try:
+        if request.user.customer.membership:
+            membership = request.user.customer.membership
+            qs_descuentos = CuponBlock.objects.filter(user=request.user)
+            cupon_descuento = qs_descuentos.filter(cupon__restaurant=lugar)
+            context = { 
+            'membership':membership,
+            'place': place, 
+            'food_services': fs_list,
+            'cat_menu': fs_category,
+            'cat_menu_detail': fs_category_detail,
+            'cupones': cupon_descuento,
+            }
+            return render(request, 'place/place.html', context)
+    except Customer.DoesNotExist:
+            print('usuario no registrado')
+            context = { 
+            'place': place, 
+            'food_services': fs_list,
+            'cat_menu': fs_category,
+            }
+            return render(request, 'place/place.html', context)
 
 
 @login_required
@@ -309,4 +320,3 @@ def dash_user_list(request):
         }
     return render(request, 'dashboard/dash-user-list.html', context )
 
-    

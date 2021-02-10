@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container"><br><br><br><br>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header">
+                    Discounts City
+                </div>
+                <div class="card-body">
+                    
+                    <p class="card-text">User: {{user.username}}</p>
+                    <p class="card-text">Discounts used:  </p>
+                    <hr>
+                    
+                    
+                    
+
+                    {% if cancel_at_period_end %}
+                    <p class="card-text">Subscription Date: {{fecha_inscripcion}} </p>
+                    <p class="card-text">Next Billing Date: {{fecha_renovacion}} </p>
+                    <p>Your membership will run to the end of your billing cycle</p>
+
+                    {% elif membership %}
+                    <p class="card-text">Subscription Date: {{fecha_inscripcion}} </p>
+                    <p class="card-text">Next Billing Date: {{fecha_renovacion}} </p>
+                    <form action="{% url 'settings' %}" method="POST">
+                        {% csrf_token %}
+                        <input class="btn btn-primary" type="submit" value="Cancel Membership">
+                    </form>
+
+                    {% else %}
+
+                    <a class="btn btn-primary" href="{% url 'checkout' %}"> Get a membership</a>
+
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<br><br><br><br>
+
+
+{% endblock %}
