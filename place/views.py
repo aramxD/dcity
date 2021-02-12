@@ -216,20 +216,6 @@ def edit_product(request, state, slug, product_pk):
 
 @login_required
 @staff_member_required
-def add_cupon(request, state, slug,):
-    place = get_object_or_404(Place, slug=slug) # Trae la informacion del restaurante
-    if request.method == 'GET':
-        context = {'form' : CuponForm()}
-        return render(request, 'place/add_cupon.html', context )
-    else:
-        form = CuponForm(request.POST)
-        newcupon = form.save(commit=False)
-        newcupon.save()
-        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
-
-
-@login_required
-@staff_member_required
 def delete_product(request,  product_pk):
     product = get_object_or_404(ServiceMenu, pk=product_pk)
     if request.method == 'POST':
@@ -237,6 +223,37 @@ def delete_product(request,  product_pk):
         product.delete()
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
+
+@login_required
+@staff_member_required
+def add_cupon(request, state, slug,):
+    place = get_object_or_404(Place, slug=slug) # Trae la informacion del restaurante
+    coupon_queryset = Cupon.objects.all() # Trae la informacion del menu
+    lugar = place.id
+    coupon_list = coupon_queryset.filter(restaurant =lugar).order_by('id')
+        
+
+    if request.method == 'GET':
+        context = {
+            'form' : CuponForm(),
+            'place': place, 
+            'obj_list': coupon_list,
+            }
+        return render(request, 'place/add_cupon.html', context )
+    else:
+        form = CuponForm(request.POST)
+        newcupon = form.save(commit=False)
+        newcupon.save()
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+@login_required
+@staff_member_required
+def delete_cupon(request,  cupon_pk):
+    coupon = get_object_or_404(Cupon, pk=cupon_pk)
+    if request.method == 'POST':
+        
+        coupon.delete()
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 @login_required
 def get_discount(request,  cupon_pk):
@@ -249,7 +266,7 @@ def get_discount(request,  cupon_pk):
         else:
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
-
+#Esta vista es para experimentar 
 @login_required
 @staff_member_required
 def add_discount(request, state, slug,):

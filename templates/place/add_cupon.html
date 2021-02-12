@@ -30,24 +30,26 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content%}
-<hr>
-<hr>
-<hr>
+<br>
+<br>
+<br>
 <div class="place-title">
-    <h1>Places DB</h1>
+    <h1>Cupones </h1>
 
-    <h2>Esta pagina es para cargar nuevos lugares </h2>
+    <h2>Esta pagina es para cargar nuevos cupones </h2>
 </div>
 {{error}}
 <!-- Formulario-->
+<hr>
 <div class="mx-auto" style="width: 750px;">
     <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <table>
             {{form.as_table}}
         </table>
-        <input type="submit" name="Submit">
-        
+        <input class="btn btn-primary" type="submit" name="Submit">
+        <a class="btn btn-success" href="{% url 'place_detail' place.state place.slug  %}"> Finish</a>
+
 
         <!--
 <h1> Este es un formulario HTML </h1>
@@ -88,9 +90,51 @@
 
     </form>
 </div>
+<hr>
+
+<div class="container" style="width: 850px; margin:auto; padding: 0px;">
+    <h1 class="text-center">Agregar Cupones en {{place}}</h1>
+    <br>
+    <div class="" >
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    
+                    <th class="text-center align-middle">Numero Cupon</th>
+                    <th class="text-center align-middle">Titulo</th>
+                    <th class="text-center align-middle">Descripcion</th>
+                    <th class="text-center align-middle">Restaurante</th>
+                    <th class="text-center align-middle">Eliminar</th>
+                </tr>
+            </thead>
+            {% for obj in obj_list %}
+            <tbody>
+                <tr>
+                    
+                    <td class="text-center align-middle"><a href={% url 'edit_product' place.state place.slug obj.id %}>
+                    # {{obj.number}}</a></td>
+                    <td class="text-center align-middle">{{obj.title}}</td>
+                    <td class="text-center align-middle">{{obj.description}}</td>
+                    <td class="text-center align-middle">{{obj.restaurant}}</td>
+                    
+                    <td class="text-center align-middle">
+                        <form method="POST" action="{% url 'delete_cupon' obj.id %}">
+                            {% csrf_token %}
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+
+    <br>
 
 
-
+</div>
 
 
 

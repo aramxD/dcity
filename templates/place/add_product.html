@@ -46,7 +46,8 @@
         <table>
             {{form.as_table}}
         </table>
-        <input type="submit" name="Submit">
+        <input class="btn btn-primary" type="submit" name="Submit">
+        <a class="btn btn-success" href="{% url 'place_detail' place.state place.slug  %}"> Finish</a>
 
 
         <!--

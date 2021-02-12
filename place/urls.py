@@ -21,6 +21,7 @@ urlpatterns = [
     path('product/<int:product_pk>/delete', views.delete_product, name="delete_product"),
     path('get_discount/<int:cupon_pk>/discount', views.get_discount, name="get_discount"),
     path('<str:state>/<str:slug>/add-cupon', views.add_cupon, name='add_cupon'),
+    path('coupon/<int:cupon_pk>/delete', views.delete_cupon, name="delete_cupon"),
     path('<str:state>/<str:slug>/add-discount', views.add_discount, name='add_discount'),
     path('maps/', views.maps, name="maps"),
     path('contact/', views.contact, name="contact"),
