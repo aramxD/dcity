@@ -1,13 +1,10 @@
-{% extends 'base.html' %}
-
-{% load static %}
-
-{% block content %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 <style>
-
+    {
+        % static '/css/playfair-display.css' %
+    }
+    
     .hero-image {
-        background-image: linear-gradient(rgba(116, 151, 190, 0.5), rgba(116, 151, 190, 0.5)), url(https://discounts.city/wp-content/uploads/2020/06/Map-Discounts-City1.jpg);
-        background-color: rgba(45, 45, 45, .55);
         height: 300px;
         background-position: center;
         background-repeat: no-repeat;
@@ -15,7 +12,7 @@
         position: relative;
         margin-top: -20px;
     }
-
+    
     .hero-text {
         margin: auto;
         max-width: 60rem;
@@ -24,7 +21,7 @@
         left: 20px;
         right: 20px;
     }
-
+    
     .hero-titles {
         border-radius: 15px;
         border: 1;
@@ -32,9 +29,8 @@
         padding: 5px;
         background: rgba(255, 255, 255, 0.8);
     }
-
+    
     .boton-magico {
-
         width: 40px;
         height: 40px;
         font-size: 40px;
@@ -42,33 +38,33 @@
         margin-bottom: 24px;
         margin: auto;
     }
-
     
-    .navtext-button{
-        color:rgb(255, 255, 255);
+    .navtext-button {
+        color: rgb(255, 255, 255);
         font-size: 18px;
         padding-left: 5px;
         padding-right: 5px;
     }
-
+    
     #navbar a:hover {
         background-color: #ddd;
         color: black;
     }
-
+    
     .sticky {
         position: fixed;
         top: 0;
         width: 100%;
     }
-
-    .sticky + .content {
-  padding-top: 60px;
-}
+    
+    .sticky+.content {
+        padding-top: 60px;
+    }
+    
     .boton-magico {
         color: #10bb87;
     }
-
+    
     .boton-magico-btn {
         color: #000;
         font-size: 16px;
@@ -88,28 +84,28 @@
         -webkit-box-pack: center;
         justify-content: center;
     }
-
+    
     .boton-magico .boton-magico-btn {
         background-color: #10bb87;
         color: #fff;
     }
-
+    
     .boton-magico .boton-magico-btn:hover {
         box-shadow: 0 3px 0 0 #0a7554;
     }
-
+    
     .boton-magico .boton-magico-btn:active {
         -webkit-transform: translateY(3px);
         transform: translateY(3px);
         box-shadow: none;
     }
-
+    
     .container-precios {
         background-color: #e9e9e9;
         margin: auto;
         margin-top: -20px;
     }
-
+    
     .pricing-card {
         border: 1;
         border-radius: 10px;
@@ -118,50 +114,49 @@
         -webkit-transition: all 0.6s;
         transition: all 0.6s;
     }
-
+    
     .pricing-card:hover {
         box-shadow: 0 2px 40px 0 rgba(205, 205, 205, 0.55);
     }
-
+    
     .pricing-card.pricing-card-highlighted {
         box-shadow: 0 2px 40px 0 rgba(205, 205, 205, 0.55);
     }
-
+    
     .pricing-card:hover {
         box-shadow: 0 2px 40px 0 rgba(205, 205, 205, 0.55);
         -webkit-transform: translateY(-10px);
         transform: translateY(-10px);
     }
-
+    
     .pricing-card .card-body {
         padding-top: 55px;
         padding-bottom: 62px;
     }
-
+    
     .pricing-plan-title {
         font-size: 30px;
         color: #000;
         margin-bottom: 11px;
         font-weight: normal;
     }
-
+    
     .pricing-plan-cost {
         font-size: 40px;
         color: #000;
         font-weight: bold;
         margin-bottom: 29px;
     }
-
+    
     .pricing-plan-icon {
         display: inline-block;
-        
         margin-bottom: 54px;
     }
-
+    
     .pricing-plan-enterprise .pricing-plan-icon {
         color: #5d78ff;
     }
-
+    
     .pricing-plan-features {
         list-style: none;
         padding-left: 0;
@@ -170,7 +165,7 @@
         margin-bottom: 35px;
         color: #303132;
     }
-
+    
     .pricing-plan-purchase-btn {
         color: #000;
         font-size: 16px;
@@ -190,46 +185,45 @@
         -webkit-box-pack: center;
         justify-content: center;
     }
-
+    
     .pricing-plan-enterprise .pricing-plan-purchase-btn {
         background-color: #5d78ff;
         color: #fff;
     }
-
+    
     .pricing-plan-enterprise .pricing-plan-purchase-btn:hover {
         box-shadow: 0 3px 0 0 #1138ff;
     }
-
+    
     .pricing-plan-enterprise .pricing-plan-purchase-btn:active {
         -webkit-transform: translateY(3px);
         transform: translateY(3px);
         box-shadow: none;
     }
-
+    
     section {
         padding-top: 4rem;
         width: 50%;
         margin: auto;
     }
-
+    
     details[open] summary~* {
         animation: open 0.3s ease-in-out;
     }
-
+    
     @keyframes open {
         0% {
             opacity: 0;
         }
-
         100% {
             opacity: 1;
         }
     }
-
+    
     details summary::-webkit-details-marker {
         display: none;
     }
-
+    
     details summary {
         width: 100%;
         padding: 0.5rem 0;
@@ -240,7 +234,7 @@
         font-weight: 300;
         list-style: none;
     }
-
+    
     details summary:after {
         content: "+";
         color: black;
@@ -253,24 +247,24 @@
         transform-origin: center;
         transition: 200ms linear;
     }
-
+    
     details[open] summary:after {
         transform: rotate(45deg);
         font-size: 3rem;
     }
-
+    
     details summary {
         outline: 0;
     }
-
+    
     details p {
         font-size: 15px;
         margin: 0 0 1rem;
         padding-top: 1rem;
     }
-
-    .navbar-nav>li>a{
-        padding:5px;
+    
+    .navbar-nav>li>a {
+        padding: 5px;
         margin-left: 10px;
         margin-right: 10px;
         vertical-align: baseline;
@@ -281,12 +275,14 @@
 
 <!------HERO de discount city ----------->
 
-<div class="hero-image" id="header-section" >
+<div class="hero-image" id="header-section" style="background-image: linear-gradient(rgba(116, 151, 190, 0.5), rgba(116, 151, 190, 0.5)), url({% static 'image/mapa-discounts-citys.jpg' %});
+background-color: rgba(45, 45, 45, .55);">
     <div class="hero-text">
         <div class="hero-titles">
             <h1 class="text-center" style="font-size: 32px; margin:0;">WELCOME TO DISCOUNTS CITY</h1>
             <h4 class="text-center" style="font-size: 16px; margin:0;">MORE VALUE FOR YOU</h4>
         </div>
+
         <br>
         <div class="boton-magico">
             <a class="nav-link  text-black btn boton-magico-btn" href="{% url 'discounts_places' %}">Discounts
@@ -302,9 +298,7 @@
         <!-- Menu Logo-->
         <div class="navbar-header ">
 
-            <a class="display-5 navbar-brand" style="padding:0" href="{% url 'discounts_places' %}"><img
-                    src="https://discounts.city/wp-content/uploads/2021/01/Logo-Discounts-City-BN-Menu-min.png" alt=""
-                    style="height: 40px;"></a>
+            <a class="display-5 navbar-brand" style="padding:0" href="{% url 'discounts_places' %}"><img src="{% static 'image/logo-new.png' %}" alt="" style="height: 40px;"></a>
         </div>
 
         <div class="navbar-header ">
@@ -326,7 +320,7 @@
                 </li>
                 <li class="nav-item navtext-button">
                     <a class="nav-link " style="color:rgb(255, 255, 255);" href="#price-section">Price</a>
-                </li> 
+                </li>
                 <li class="nav-item navtext-button">
                     <a class="nav-link" style="color:rgb(255, 255, 255);" href="#">Contact Us</a>
                 </li>
@@ -335,7 +329,7 @@
                 <!-- Navbar text-->
                 <li class="nav-item active navtext-button">
                     <a class="nav-link" style="color:rgb(255, 255, 255);">Welcome {{user.username}} </a>
-                </li >
+                </li>
                 <li class="nav-item active navtext-button">
                     <a class="btn btn-success " href="{% url 'settings' %}" style="color:rgb(255, 255, 255);">Settings </a>
                 </li>
@@ -382,8 +376,7 @@
                     </div>
                     <div class="card-body">
                         <h4 class="card-title"><strong> HUNDREDS OF DOLLARS EVERY MONTH</strong></h4>
-                        <p class="card-text">With this subscription you will get discounts in hundreds
-                            of places and special offers every month.</p>
+                        <p class="card-text">With this subscription you will get discounts in hundreds of places and special offers every month.</p>
                     </div>
                 </div>
             </div>
@@ -398,8 +391,7 @@
                     <div class="card-body">
                         <h4 class="card-title"><strong> A SINGLE MEMBERSHIP WITH A LOT OF VALUE</strong>
                         </h4>
-                        <p class="card-text">We are a group of local entrepreneurs who offer you
-                            excellent discounts on our products and services</p>
+                        <p class="card-text">We are a group of local entrepreneurs who offer you excellent discounts on our products and services</p>
                     </div>
                 </div>
             </div>
@@ -415,9 +407,7 @@
                     </div>
                     <div class="card-body">
                         <h4 class="card-title"><strong> GET MORE VALUE, EVERYWHERE</strong></h4>
-                        <p class="card-text">We want you to have an excellent service from our
-                            community
-                            and we give you a discount so you can meet them</p>
+                        <p class="card-text">We want you to have an excellent service from our community and we give you a discount so you can meet them</p>
                     </div>
                 </div>
             </div>
@@ -432,10 +422,7 @@
                 <div class="card-body">
                     <h4 class="card-title"><strong>
                             SERVICES AND FOOD FROM YOUR COMMUNITY</strong></h4>
-                    <p class="card-text">Here you will find a lot of discounts from
-                        restaurants and
-                        services near you... This way you'll support every local worker and
-                        place
+                    <p class="card-text">Here you will find a lot of discounts from restaurants and services near you... This way you'll support every local worker and place
                     </p>
                 </div>
             </div>
@@ -468,13 +455,14 @@
                         </li>
                         <li style="margin-bottom: 14px;"><i class="check-icon bi bi-check"></i>Restaurant's <strong><em>discounts</em></strong></li>
                         <li style="margin-bottom: 14px;"><i class="check-icon bi bi-check"></i>Service's <strong><em>discounts</em></strong></li>
-                        <li style="margin-bottom: 14px;"><i class="check-icon bi bi-check"></i><em><strong>Special offers</em></strong></li>
+                        <li style="margin-bottom: 14px;"><i class="check-icon bi bi-check"></i><em><strong>Special offers</em></strong>
+                        </li>
                     </ul>
                     <a href="{% url 'signupuser' %}" class="btn pricing-plan-purchase-btn">Purchase</a>
                 </div>
             </div>
         </div>
-        
+
     </div>
 </div>
 
@@ -486,8 +474,8 @@
     </div>
 
 
-    {% for place in places_home %}
-    {% if forloop.first %}<div class="row">{% endif %}
+    {% for place in places_home %} {% if forloop.first %}
+    <div class="row">{% endif %}
         <div class="col-3" style="padding-right: 5px; padding-left: 8px; ">
             <div class="card-deck">
                 <div class="card rounded-4 " style="border-radius: 25px">
@@ -500,16 +488,12 @@
         </div>
         {% if forloop.counter|divisibleby:4 %}
     </div><br>
-    <div class="row">{% endif %}
-        {% if forloop.last %}</div>{% endif %}
-    {% endfor %}
+    <div class="row">{% endif %} {% if forloop.last %}</div>{% endif %} {% endfor %}
 
     <div class="text-center">
         <p><em>These were chosen at random, you can see more in </em> </p>
-        <div class="card text-center pricing-plan-pro"
-            style="border:0; max-width: 60rem; margin:auto; background: rgba(0, 0, 0, 0);">
-            <a class="nav-link  text-black pricing-plan-pro btn pricing-plan-purchase-btn"
-                href="{% url 'discounts_places' %}">Discounts Places</a>
+        <div class="card text-center pricing-plan-pro" style="border:0; max-width: 60rem; margin:auto; background: rgba(0, 0, 0, 0);">
+            <a class="nav-link  text-black pricing-plan-pro btn pricing-plan-purchase-btn" href="{% url 'discounts_places' %}">Discounts Places</a>
         </div>
     </div>
     <br>
@@ -529,9 +513,8 @@
 
     <details>
         <summary>What kind of discounts will I get??</summary>
-        <p>if you buy your coffee at a local coffee shop they will discount 2 dlls and if you take your clothes to the
-            dry cleaner they will discount 4 dlls, in 1 hour of 1 day you ALREADY saved 6 dlls, if with disconts city
-            you save 6 dlls every day, at end of a year you will have $ 2,190 dlls or more</p>
+        <p>if you buy your coffee at a local coffee shop they will discount 2 dlls and if you take your clothes to the dry cleaner they will discount 4 dlls, in 1 hour of 1 day you ALREADY saved 6 dlls, if with disconts city you save 6 dlls every day, at
+            end of a year you will have $ 2,190 dlls or more</p>
     </details>
 
 
@@ -544,25 +527,27 @@
 
     <details>
         <summary>Can my business be part of the discounts city family?</summary>
-        <p>Yes, your store, restaurant or service can be part of our family, you can send us an email to
-            discount.citys@gmail.com</p>
+        <p>Yes, your store, restaurant or service can be part of our family, you can send us an email to discount.citys@gmail.com
+        </p>
     </details>
 </div>
 
 
 <script>
-window.onscroll = function() {myFunction()};
+    window.onscroll = function() {
+        myFunction()
+    };
 
-var navbar = document.getElementById("navbar");
-var sticky = navbar.offsetTop;
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
 
-function myFunction() {
-  if (window.pageYOffset >= sticky) {
-    navbar.classList.add("sticky")
-  } else {
-    navbar.classList.remove("sticky");
-  }
-}
+    function myFunction() {
+        if (window.pageYOffset >= sticky) {
+            navbar.classList.add("sticky")
+        } else {
+            navbar.classList.remove("sticky");
+        }
+    }
 </script>
 
 {% endblock %}
