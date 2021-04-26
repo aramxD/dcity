@@ -198,7 +198,7 @@ STATICFILES_STORAGE = config('STATICFILES_STORAGE')
 MAPS_API_KEY = config('MAPS_API_KEY')
 
 
-#contact form
+#SMTP Configuration
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_USE_TLS = True

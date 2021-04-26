@@ -1,3 +1,4 @@
+{% load static %}
 {% if places_home %}
 
 
@@ -39,7 +40,7 @@
         <div class="navbar-header ">
 
             <a class="display-5 navbar-brand" style="padding:0" href="{% url 'discounts_places' %}"><img
-                    src="https://discounts.city/wp-content/uploads/2021/01/Logo-Discounts-City-BN-Menu-min.png" alt=""
+                    src="{% static 'image/logo-new.png' %}" alt=""
                     style="height: 40px;"></a>
         </div>
 
