@@ -109,7 +109,7 @@ def checkout(request):
         customer.user = request.user
         customer.stripeid = stripe_customer.id
         customer.membership = True
-        customer.cancel_ar_period_end = False
+        customer.cancel_at_period_end = False
         customer.stripe_subscription_id = subscription.id
         customer.save()
 
@@ -173,6 +173,7 @@ def settings(request):
             subscription_date = stripe.Subscription.retrieve(request.user.customer.stripe_subscription_id).current_period_start
             fecha_inscripcion = datetime.fromtimestamp(subscription_date)
             fecha_renovacion= datetime.fromtimestamp(renovation_date)
+            
             if request.user.customer.membership:
                 membership = True
             if request.user.customer.cancel_at_period_end:
@@ -183,6 +184,7 @@ def settings(request):
 
     context={
             'membership':membership,
+
             'cancel_at_period_end':cancel_at_period_end,
             'fecha_renovacion':fecha_renovacion,
             'fecha_inscripcion':fecha_inscripcion
