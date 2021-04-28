@@ -199,9 +199,17 @@ MAPS_API_KEY = config('MAPS_API_KEY')
 
 
 #SMTP Configuration
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "smtp.gmail.com"
+
+SENDGRID_API_KEY = config('SENDGRID_API_KEY')
+SENDGRID_SANDBOX_MODE_IN_DEBUG = False
+EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
+EMAIL_HOST = "smtp.sendgrid.net"
 EMAIL_USE_TLS = True
 EMAIL_PORT = config('EMAIL_PORT')
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+
+
+
+#AUTOFIELD
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
