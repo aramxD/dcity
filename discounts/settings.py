@@ -206,7 +206,8 @@ EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
 EMAIL_HOST = "smtp.sendgrid.net"
 EMAIL_USE_TLS = True
 EMAIL_PORT = config('EMAIL_PORT')
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_USER = apikey
+EMAIL_HOST_FROM = config('EMAIL_HOST_FROM')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
 
