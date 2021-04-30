@@ -45,7 +45,7 @@ def contact(request):
     if request.method == 'POST':
         asunto = "Prospecto " + request.POST["txtName"] + " discounts.city (Formulario web)"
         mensaje = "La persona " + request.POST["txtName"] + ". Esta interesada, contactar al telefono: " + request.POST["txtPhoneNumber"] + " o Email: " + request.POST["txtEmail"] 
-        email_from = settings.EMAIL_HOST_FROM
+        email_from = settings.EMAIL_HOST_USER
         email_to = ["info.discount.citys@gmail.com"]
         send_mail(asunto, mensaje, email_from, email_to, fail_silently=False)
         return redirect('discounts_places') 
