@@ -1,17 +1,19 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.mail import send_mail
-from .models import *
-from .forms import PlaceForm, ProductForm, CuponForm
 from django.http import HttpResponseRedirect
-from membership.models import *
-from django.contrib import messages
-from django.http import HttpResponseRedirect
-from django.conf import settings
-import stripe
 from django.views.generic import (TemplateView)
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 from django.views.decorators.clickjacking import xframe_options_exempt
+from django.contrib import messages
+from django.http import HttpResponseRedirect
+from django.conf import settings
+from membership.models import *
+from .models import *
+from .forms import PlaceForm, ProductForm, CuponForm
+import stripe
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
 
 
 # Create your views here.
@@ -47,7 +49,21 @@ def contact(request):
         mensaje = "La persona " + request.POST["txtName"] + ". Esta interesada, contactar al telefono: " + request.POST["txtPhoneNumber"] + " o Email: " + request.POST["txtEmail"] 
         email_from = settings.EMAIL_HOST_USER
         email_to = ["info.discount.citys@gmail.com"]
-        send_mail(asunto, mensaje, email_from, email_to, fail_silently=False)
+        sendgrid_apikey = settings.SENDGRID_API_KEY
+        #send_mail(asunto, mensaje, email_from, email_to, fail_silently=False)
+
+        message = Mail(email_from, email_to, asunto,
+            html_content="<strong>La persona </strong>" + request.POST["txtName"] + ". Esta interesada, contactar al telefono: " + request.POST["txtPhoneNumber"] + " o Email: " + request.POST["txtEmail"] )
+        try:
+            sg = SendGridAPIClient(sendgrid_apikey)
+            response = sg.send(message)
+            print(response.status_code)
+            print(response.body)
+            print(response.headers)
+        except Exception as e:
+            print(e.message)
+
+        
         return redirect('discounts_places') 
     return redirect('discounts_places')
 

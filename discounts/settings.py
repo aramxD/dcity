@@ -200,23 +200,22 @@ MAPS_API_KEY = config('MAPS_API_KEY')
 
 #SMTP Configuration
 
-#SENDGRID_API_KEY = config('SENDGRID_API_KEY')
-#SENDGRID_SANDBOX_MODE_IN_DEBUG = False
-#EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
-#EMAIL_HOST = "smtp.sendgrid.net"
-#EMAIL_USE_TLS = True
-#EMAIL_PORT = config('EMAIL_PORT')
-#EMAIL_HOST_USER = 'apikey'
-#EMAIL_HOST_FROM = config('EMAIL_HOST_FROM')
-#EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-
-
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "smtp.googlemail.com"
+SENDGRID_API_KEY = config('SENDGRID_API_KEY')
+SENDGRID_SANDBOX_MODE_IN_DEBUG = False
+EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
+EMAIL_HOST = "smtp.sendgrid.net"
 EMAIL_USE_TLS = True
 EMAIL_PORT = config('EMAIL_PORT')
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = config('EMAIL_HOST_USER')
+
+#EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+#EMAIL_HOST = "smtp.gmail.com"
+#EMAIL_USE_TLS = True
+#EMAIL_PORT = config('EMAIL_PORT')
+#EMAIL_HOST_USER = config('EMAIL_HOST_FROMGMAIL')
+#EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORDGMAIL')
 
 
 #AUTOFIELD
