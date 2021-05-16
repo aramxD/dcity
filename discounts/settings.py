@@ -87,16 +87,16 @@ WSGI_APPLICATION = 'discounts.wsgi.application'
 #}
 
 ####DATABASE POSTGRESQL AWS
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('DB_AWS_NAME'),
-        'USER': config('DB_AWS_USER'),
-        'PASSWORD': config('DB_AWS_PASSWORD'),
-        'HOST': config('DB_AWS_HOST'),
-        'PORT': config('DB_AWS_PORT'),
-    }
-}
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql',
+#        'NAME': config('DB_AWS_NAME'),
+#        'USER': config('DB_AWS_USER'),
+#        'PASSWORD': config('DB_AWS_PASSWORD'),
+#        'HOST': config('DB_AWS_HOST'),
+#        'PORT': config('DB_AWS_PORT'),
+#    }
+#}
 
 #####DATABASE POSTGRESQL LOCAL
 #DATABASES = {
@@ -115,13 +115,13 @@ DATABASES = {
 
 
 #DATABASE HEROKU
-#import dj_database_url
-#from decouple import config
-#DATABASES = {
-#    'default': dj_database_url.config(
-#        default=config('DATABASE_URL')
-#    )
-#}
+import dj_database_url
+from decouple import config
+DATABASES = {
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL1')
+    )
+}
 
 
 # Password validation
