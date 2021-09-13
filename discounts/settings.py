@@ -103,8 +103,8 @@ WSGI_APPLICATION = 'discounts.wsgi.application'
 #    'default': {
 #        'ENGINE': 'django.db.backends.postgresql',
 #        'NAME': 'DEMO_TEST',
-#        'USER': 'postgres',
-#        'PASSWORD': 'LavioletaxD99',
+#        'USER': ' ',
+#        'PASSWORD': ' ',
 #        'HOST': 'localhost',
 #        'PORT': '5432',
 #    }
