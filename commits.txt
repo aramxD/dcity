@@ -1,0 +1,373 @@
+[33mcommit 4f437d38cb13fa6ceb6fbc47859d606e6f087315[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31mheroku/master[m[33m)[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Sat May 15 23:59:55 2021 -0700
+
+    integracion base de datos
+
+[33mcommit d4a80d290304ee5e47652440135c4f0c5e9782c9[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Sun May 2 11:51:50 2021 -0700
+
+    sendgrid configurado
+
+[33mcommit 44d03504be4fadf2e7cb3eea0fd060525aa171ea[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Fri Apr 30 19:18:41 2021 -0700
+
+    Cambio de hoststmp
+
+[33mcommit 12bc2b7995d38cfbd657c26ae931bf9d504bc2c8[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Fri Apr 30 00:15:31 2021 -0700
+
+    regreso al stmp de django
+
+[33mcommit 0eb6367889d029ab6413841d81f1b3276a3c5b07[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Wed Apr 28 16:21:27 2021 -0700
+
+    ajuste de correo ?
+
+[33mcommit 7bdab92eb8c0699885472a127d24322f47750083[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Wed Apr 28 15:59:55 2021 -0700
+
+    ajuste de correo ?
+
+[33mcommit 500f8f014db726e958c0e2e6dcfac7e33cc959f2[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Wed Apr 28 12:12:57 2021 -0700
+
+    modulo contacto + servicio stmp
+
+[33mcommit 2f497e934a5ae2983f26eb076c26b3b958f9b35b[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Wed Apr 28 12:01:01 2021 -0700
+
+    modulo contacto + servicio stmp
+
+[33mcommit eba32866f7820452026c4f965b23d7eb245628f7[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Wed Apr 28 11:53:06 2021 -0700
+
+    modulo contacto + servicio stmp
+
+[33mcommit 06d560d0d50f308fde3bb9cf35b901ecc2e045a7[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Wed Apr 28 11:44:20 2021 -0700
+
+    modulo contacto + servicio stmp
+
+[33mcommit be48117c2b703418e3899d1b8be2479b86142d5f[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Tue Apr 27 11:20:51 2021 -0700
+
+    ajuste en paginas y logo
+
+[33mcommit d3611c435be5c6db6bfeb97a41384fccf201fcb9[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Sun Apr 25 21:09:21 2021 -0700
+
+    mejor de password reset
+
+[33mcommit d2ccc20cc193c1549cc98b728ed4ada2b2dbc42c[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Sun Apr 25 20:52:22 2021 -0700
+
+    mejor de password reset
+
+[33mcommit fd792e80f3a903c6f99d73e3d3eba12f238a35ea[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Sun Apr 25 19:04:11 2021 -0700
+
+    modulo de password reset
+
+[33mcommit b3665d9b02c0c3d30a2801048f183117d942be27[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Sun Apr 25 12:42:21 2021 -0700
+
+    reparacion de archivos static
+
+[33mcommit 5e244e3ad752108414acad6627223368c5526189[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Thu Feb 11 22:34:48 2021 -0800
+
+    ajuste en add cupon
+
+[33mcommit a1da176e2fcb9c9e9027bf5b680da08a6472ac35[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Wed Feb 10 00:10:11 2021 -0800
+
+    modulo stripe terminado :D
+
+[33mcommit 6db0b59f659bd9aa101c2f9662014a62679c2e41[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Tue Feb 9 23:33:03 2021 -0800
+
+    modulo stripe terminado :D
+
+[33mcommit f78d14b91679d39c36733d7dd9a007ebb8997576[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Fri Feb 5 13:47:01 2021 -0800
+
+    avance list-places
+
+[33mcommit 8d6adc902ce7eff56dda3a571a4095ffd901ac19[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Wed Feb 3 21:43:54 2021 -0800
+
+    ajuste minimo a places
+
+[33mcommit f5cbb333d57fa47f00fb124ee3240229a42cfb12[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Tue Feb 2 23:00:46 2021 -0800
+
+    places ajustada
+
+[33mcommit 216d3320eeb19e2dab6aa8c6ddcec9de0e4faba1[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Tue Feb 2 10:56:16 2021 -0800
+
+    navbar ajustada
+
+[33mcommit 49a626841fbb60bcc7e20b117b7117f0b997db65[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Tue Feb 2 09:22:07 2021 -0800
+
+    ajuste homepage
+
+[33mcommit e15496ff287a107dffad739e237cd301557cb5e3[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Sun Jan 31 22:11:18 2021 -0800
+
+    implementacion decorado staff required
+
+[33mcommit fdb22fc647633d7ed299527152815375aee67cc0[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Sun Jan 31 21:16:39 2021 -0800
+
+    implementacion decorado login required
+
+[33mcommit a6ac2804530827787caff25a74e7749603cd1725[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Sun Jan 31 15:07:42 2021 -0800
+
+    correcciones menores, implementacion de error404
+
+[33mcommit cef263a690ffb4a217f3f0ab24fd7a042ff5a6e7[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Sun Jan 24 23:41:18 2021 -0800
+
+    se agrego edit product
+
+[33mcommit 75edb7093a80d1eb64f0ead86c7a6c37da726672[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Sun Jan 24 00:00:33 2021 -0800
+
+    formulario para enviar mensajes y prospectos sin llaves
+
+[33mcommit 92a83854fa11f3ceb0afa71aaa5982c1918585f9[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Sat Jan 23 23:57:27 2021 -0800
+
+    formulario para enviar mensajes y prospectos
+
+[33mcommit c535f941ee864c7a1908fb174ffa0dbb59d0f82d[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Sat Jan 23 21:56:38 2021 -0800
+
+    slide finalizado
+
+[33mcommit bd5b02da86061cf28920151f090d3840ac4ce63f[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Sat Jan 23 15:19:55 2021 -0800
+
+    carrusel casi luist
+
+[33mcommit d0c6c568a352f65ddedf8fbfe6570577177c9e7f[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Sat Jan 23 14:03:59 2021 -0800
+
+    apunto de agregar el modelo del sample
+
+[33mcommit d1aa36dd577a2df4b6b85f6377052de6d42cd95b[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Fri Jan 22 21:30:35 2021 -0800
+
+    mejorando homepage
+
+[33mcommit 13d5adf20875835b4e8ebc120105bf65787f9905[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Thu Jan 21 19:33:24 2021 -0800
+
+    Mejoras en Homepage
+
+[33mcommit 272acdc2f81c1f7a64be73a2272f8817b7df4cfd[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Thu Jan 21 15:55:47 2021 -0800
+
+    mejora de home
+
+[33mcommit cd73e9a7781f716f2c33b926be0bf3fcf3527c10[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Wed Jan 20 21:52:28 2021 -0800
+
+    modificaciones en el homepage
+
+[33mcommit 0a78c951872b15d80b3ab3d24238fc78efe24542[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Tue Jan 19 15:09:44 2021 -0800
+
+    ajuste places html
+
+[33mcommit 80cd8cf51fa9a67eb8487b2cd7207f1ffc514dfb[m
+Merge: 2c1e21c 41320dc
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Tue Jan 19 13:57:36 2021 -0800
+
+    Merge branch 'master' of https://github.com/aramxD/dcity
+
+[33mcommit 2c1e21caf539281301729ab5b07e05dc6a960abb[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Tue Jan 19 13:57:12 2021 -0800
+
+    no tracking .nev
+
+[33mcommit 41320dc895aa40ba6e743c6d57f76660a20bbded[m
+Author: aramxD <35883004+aramxD@users.noreply.github.com>
+Date:   Tue Jan 19 12:42:21 2021 -0800
+
+    Delete .env
+
+[33mcommit 9f2bf4e18608626cdee767b45178e5b0a673ae5f[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Sun Jan 17 21:55:33 2021 -0800
+
+    places actualizzado
+
+[33mcommit a7c23d9293f8af68eab02ff51e52d708169d0b33[m
+Merge: 2b81a6a fc33907
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Sun Jan 17 17:06:21 2021 -0800
+
+    Merge branch 'master' of https://github.com/aramxD/dcity
+
+[33mcommit 2b81a6a8a7b7939eda9291386614a6ad5e99cc1a[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Sun Jan 17 16:54:58 2021 -0800
+
+    variables de entorno agregadas
+
+[33mcommit fc339076742fceaa691afff0b69404c49d5fad4a[m
+Author: aramxD <35883004+aramxD@users.noreply.github.com>
+Date:   Sun Jan 17 16:47:59 2021 -0800
+
+    Delete .env
+
+[33mcommit 1d596f924acd022bb9c5b59bdcfe2562d7d19f72[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Sun Jan 17 16:45:51 2021 -0800
+
+    variables de entorno agregadas
+
+[33mcommit 434206bbd6edb524c7ebfa8a42c8eb6373f45e56[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Sun Jan 17 01:15:30 2021 -0800
+
+    ajustes del menu
+
+[33mcommit 2fdb03fce232e3bba0c09ae677894bc6db5d021d[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Sun Jan 17 01:13:12 2021 -0800
+
+    ajustes del menu
+
+[33mcommit 723a90318af519d1314516726a981931482da6c6[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Sat Jan 16 00:07:20 2021 -0800
+
+    base de datos aws check...
+
+[33mcommit ee8c93dbe078b75612e9afedc3cca4351b8957eb[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Fri Jan 15 19:29:28 2021 -0800
+
+    falla deploy heroku
+
+[33mcommit fe12a63adef0b35069e3ed8f6a0f2b085b9fba34[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Fri Jan 15 18:50:37 2021 -0800
+
+    ajuste de aws
+
+[33mcommit 420ecb3fc01ac890db243199bcc4fed0c8b5a20e[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Thu Jan 14 19:38:06 2021 -0800
+
+    ajuste de imagenes
+
+[33mcommit 14415aa3b02636356b4799bd851830c03c887663[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Thu Jan 14 19:33:06 2021 -0800
+
+    ajuste de imagenes
+
+[33mcommit be01afe402481f2d1cead401748800cd7d372c80[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Thu Jan 14 19:07:58 2021 -0800
+
+    ajuste de imagenes
+
+[33mcommit 0800c022c4d9ff09fa8b213e3bfc976ef0dfff66[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Thu Jan 14 18:23:44 2021 -0800
+
+    ajuste llave de stripe
+
+[33mcommit 11aa850ef542497e04974ba05a0f9525f3ec194b[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Thu Jan 14 18:21:37 2021 -0800
+
+    ajuste llave de stripe
+
+[33mcommit 7305f7ab4a397e9968ebe6fa3112010f719b5217[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Thu Jan 14 18:17:30 2021 -0800
+
+    ajuste llave de stripe
+
+[33mcommit 38c8281449d7b8db9c43fd10a0b0a245150ebb4b[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Thu Jan 14 17:55:03 2021 -0800
+
+    ajuste llave de stripe
+
+[33mcommit cd0dcdfde8b3eea4b9dba6213c20956973a45c65[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Thu Jan 14 17:39:29 2021 -0800
+
+    deploy heroku
+
+[33mcommit 6bc5e30895e3095aa2bd1a8b08829a5fce6f61b1[m
+Author: Julio Santacruz <aram.jsh1@gmail.com>
+Date:   Thu Jan 14 16:48:00 2021 -0800
+
+    falta el metodo de pago
+
+[33mcommit 0ff753ebc8fcf18c47700ce0a588e4037efa7022[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: aramxD <aram.jsh1@gmail.com>
+Date:   Tue Dec 22 21:40:23 2020 -0800
+
+    copun ajustado
+
+[33mcommit df044b79afeb37c7bbf56227d0e0d3fa1523151d[m
+Author: aramxD <aram.jsh1@gmail.com>
+Date:   Tue Dec 22 17:53:40 2020 -0800
+
+    copun ajustado
+
+[33mcommit 2fafa0e599726d2afd7a64bb5832cf5711bbb6b0[m
+Author: aramxD <aram.jsh1@gmail.com>
+Date:   Tue Dec 22 10:55:13 2020 -0800
+
+    arranque
